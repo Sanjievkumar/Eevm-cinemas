@@ -39,7 +39,7 @@ export function Footer() {
             <h3 className="text-overline mb-4">Location</h3>
             <address className="not-italic space-y-2 text-sm text-cinema-gray-400">
               <p>{cinemaInfo.name}</p>
-              <p>{contactDetails.addressLine ?? 'Tiruchengode, Tamil Nadu'}</p>
+              <p>{contactDetails.addressLine ?? 'Kochi, Keralam'}</p>
               {contactDetails.phone && <p>{contactDetails.phone}</p>}
               {contactDetails.email && <p>{contactDetails.email}</p>}
             </address>

@@ -3,10 +3,11 @@
 export function HeroBottomBar() {
   const features = [
     {
-      label: '4K Laser Projection',
+      label: 'Dolby Cinemas',
       icon: (
         <svg className="w-5 h-5 text-brand-cyan" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M6 20.25h12m-6-3v3m-6.9-6h13.8m-13.8 0A2.25 2.25 0 013 12V5.25A2.25 2.25 0 015.25 3h13.5A2.25 2.25 0 0121 5.25V12a2.25 2.25 0 01-2.25 2.25M6.75 14.25h10.5" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h12A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6z" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 8.25h2.25a3.75 3.75 0 010 7.5h-2.25V8.25z" />
         </svg>
       ),
     },
@@ -19,10 +20,10 @@ export function HeroBottomBar() {
       ),
     },
     {
-      label: 'Premium Seating',
+      label: '4K Laser Projection',
       icon: (
         <svg className="w-5 h-5 text-brand-cyan" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M7 11.5V14m10-2.5V14M5 8h14a2 2 0 012 2v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4a2 2 0 012-2zM7 8V5a2 2 0 012-2h6a2 2 0 012 2v3" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 20.25h12m-6-3v3m-6.9-6h13.8m-13.8 0A2.25 2.25 0 013 12V5.25A2.25 2.25 0 015.25 3h13.5A2.25 2.25 0 0121 5.25V12a2.25 2.25 0 01-2.25 2.25M6.75 14.25h10.5" />
         </svg>
       ),
     },
@@ -34,13 +35,21 @@ export function HeroBottomBar() {
         </svg>
       ),
     },
+    {
+      label: 'Premium Seating',
+      icon: (
+        <svg className="w-5 h-5 text-brand-cyan" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M7 11.5V14m10-2.5V14M5 8h14a2 2 0 012 2v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4a2 2 0 012-2zM7 8V5a2 2 0 012-2h6a2 2 0 012 2v3" />
+        </svg>
+      ),
+    },
   ];
 
   return (
     <div className="relative z-20 w-full bg-[#060709]/85 backdrop-blur-md border-t border-[#1E2631]/60 py-4 px-4 sm:px-6 lg:px-10">
       <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Feature Specifications */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 w-full md:w-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6 w-full md:w-auto">
           {features.map((item) => (
             <div key={item.label} className="flex items-center gap-3">
               <div className="p-2 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">

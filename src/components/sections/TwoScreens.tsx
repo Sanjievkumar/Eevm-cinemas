@@ -68,16 +68,6 @@ export function TwoScreens() {
                   </div>
                 )}
 
-                {/* Top-Left Badge: SCREEN 01 / SCREEN 02 */}
-                <div className="absolute top-4 left-4 z-10 px-3 py-1 rounded-full bg-black/85 border border-brand-cyan/70 text-[0.65rem] font-bold text-brand-cyan uppercase tracking-wider backdrop-blur-md">
-                  {screen.screenNumber}
-                </div>
-
-                {/* Top-Right Badge: FLAGSHIP / CLASSIC AUDITORIUM */}
-                <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-black/85 border border-brand-gold/70 text-[0.65rem] font-bold text-brand-gold uppercase tracking-wider backdrop-blur-md">
-                  {screen.badge}
-                </div>
-
                 <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0C1017] via-[#0C1017]/60 to-transparent pointer-events-none" />
               </div>
 

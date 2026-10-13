@@ -85,7 +85,7 @@ export function Contact() {
                   LOCATION
                 </dt>
                 <dd className="text-base font-semibold text-cinema-pure-white mt-1">
-                  Tiruchengode, Tamil Nadu
+                  Kochi, Keralam
                 </dd>
               </div>
             </dl>

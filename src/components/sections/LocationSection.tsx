@@ -32,18 +32,18 @@ export function LocationSection() {
           <div className="bg-[#0C1017] border border-[#1E2631] rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
             <div>
               <span className="text-[0.62rem] font-bold tracking-[0.2em] uppercase text-brand-cyan">
-                DESTINATION &middot; TAMIL NADU
+                DESTINATION &middot; KERALAM
               </span>
               <h3 className="text-xl sm:text-2xl font-black tracking-wide text-cinema-pure-white uppercase mt-1">
                 EVM CINEMAS
               </h3>
               <p className="text-xs sm:text-sm font-bold tracking-wider uppercase text-brand-gold mt-1">
-                Tiruchengode, Tamil Nadu
+                Kochi, Keralam
               </p>
             </div>
 
             <p className="text-xs sm:text-sm text-cinema-gray-300 font-light leading-relaxed">
-              EVM Cinemas is located in Tiruchengode, Tamil Nadu. Complete map coordinates and turn-by-turn navigation links will be integrated here upon official location launch.
+              EVM Cinemas is located in Kochi, Keralam. Complete map coordinates and turn-by-turn navigation links will be integrated here upon official location launch.
             </p>
 
             <div>
@@ -65,13 +65,13 @@ export function LocationSection() {
           <div className="group relative aspect-[4/3] w-full rounded-2xl border border-[#273244] bg-[#0A0D14] overflow-hidden shadow-2xl transition-all duration-300 hover:border-brand-cyan/60">
             <img
               src="/images/location/kochi-map.jpg"
-              alt="EVM Cinemas Location Map — Kochi, Kerala"
+              alt="EVM Cinemas Location Map — Kochi, Keralam"
               className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
             />
 
             {/* Location Tag Overlay */}
             <div className="absolute bottom-4 left-4 z-10 px-3.5 py-1.5 rounded-full bg-black/85 border border-brand-cyan/60 text-[0.65rem] font-bold text-brand-cyan uppercase tracking-wider backdrop-blur-md shadow-lg">
-              OUR LOCATION &middot; KOCHI, KERALA
+              OUR LOCATION &middot; KOCHI, KERALAM
             </div>
           </div>
         </div>

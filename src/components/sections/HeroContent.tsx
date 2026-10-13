@@ -2,12 +2,12 @@ import Link from 'next/link';
 import { cinemaInfo } from '@/lib/data/mock-data';
 
 /**
- * HeroContent — Left-aligned content layout representing EVM CINEMAS (Tiruchengode, Tamil Nadu).
+ * HeroContent — Left-aligned content layout representing EVM CINEMAS (Kochi, Keralam).
  */
 export function HeroContent() {
   return (
     <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 pt-28 sm:pt-36 pb-16 lg:pb-28 flex flex-col items-start text-left">
-      {/* 1. Location Header: TIRUCHENGODE · TAMIL NADU */}
+      {/* 1. Location Header: KOCHI · KERALAM */}
       <div
         className="flex items-center gap-2 sm:gap-3 text-[0.7rem] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-cyan opacity-0 animate-slide-in-left"
         style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}

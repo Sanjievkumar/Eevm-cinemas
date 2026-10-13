@@ -119,5 +119,5 @@ export async function getGalleryItems(
  * Generate external BookMyShow booking URL for a given showtime ID.
  */
 export function getBookingUrl(showtimeId?: string): string {
-  return `https://in.bookmyshow.com/buytickets/evm-cinemas-tiruchengode/${showtimeId || 'show'}`;
+  return `https://in.bookmyshow.com/buytickets/evm-cinemas-kochi/${showtimeId || 'show'}`;
 }
