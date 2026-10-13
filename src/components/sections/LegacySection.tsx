@@ -88,7 +88,7 @@ export function LegacySection() {
                 <span className="text-[0.62rem] font-bold tracking-[0.25em] text-brand-gold uppercase inline-flex items-center gap-1.5">
                   <span>ERA {activeMilestone?.year} &middot;</span>
                   {activeMilestone?.subtitle.toUpperCase().includes('DOLBY') && (
-                    <DolbyIcon className="h-2.5 w-auto flex-shrink-0" />
+                    <DolbyIcon className="h-2.5 w-auto text-white flex-shrink-0" />
                   )}
                   <span>{activeMilestone?.subtitle}</span>
                 </span>
@@ -122,7 +122,7 @@ export function LegacySection() {
                     </div>
                     <span className="text-[0.62rem] font-bold tracking-widest text-brand-cyan uppercase bg-brand-cyan/10 border border-brand-cyan/20 px-2.5 py-0.5 rounded inline-flex items-center gap-1.5">
                       {m.subtitle.toUpperCase().includes('DOLBY') && (
-                        <DolbyIcon className="h-2.5 w-auto flex-shrink-0" />
+                        <DolbyIcon className="h-2.5 w-auto text-white flex-shrink-0" />
                       )}
                       <span>{m.subtitle}</span>
                     </span>

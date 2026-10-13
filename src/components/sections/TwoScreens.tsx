@@ -77,7 +77,7 @@ export function TwoScreens() {
                 <div>
                   <h3 className="text-xl sm:text-2xl font-black text-cinema-pure-white tracking-wide uppercase group-hover:text-brand-gold transition-colors inline-flex items-center gap-2.5">
                     {screen.title.toUpperCase().includes('DOLBY') && (
-                      <DolbyIcon className="h-4.5 sm:h-5 w-auto text-brand-gold flex-shrink-0" />
+                      <DolbyIcon className="h-4.5 sm:h-5 w-auto text-white flex-shrink-0" />
                     )}
                     <span>{screen.title}</span>
                   </h3>
@@ -95,7 +95,7 @@ export function TwoScreens() {
                       </span>
                       <span className="block text-xs font-black text-brand-cyan uppercase tracking-wider mt-1 inline-flex items-center gap-1.5">
                         {spec.value.toUpperCase().includes('DOLBY') && (
-                          <DolbyIcon className="h-2.5 w-auto text-brand-cyan flex-shrink-0" />
+                          <DolbyIcon className="h-2.5 w-auto text-white flex-shrink-0" />
                         )}
                         <span>{spec.value}</span>
                       </span>

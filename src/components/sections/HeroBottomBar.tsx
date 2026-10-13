@@ -4,7 +4,7 @@ export function HeroBottomBar() {
   const features = [
     {
       label: 'Dolby Cinemas',
-      icon: <DolbyIcon className="w-5 h-5 text-brand-cyan" />,
+      icon: <DolbyIcon className="w-5 h-5 text-white" />,
     },
     {
       label: 'Dolby Atmos Sound',

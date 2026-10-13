@@ -6,13 +6,13 @@ interface DolbyIconProps extends React.SVGProps<SVGSVGElement> {
 
 /**
  * Official Dolby Laboratories "Double D" Emblem
- * Crisp scalable SVG with evenodd fill rule for negative space "D" cutouts.
+ * Rendered in official Dolby pure white (#FFFFFF).
  */
-export function DolbyIcon({ className = 'w-4 h-4', ...props }: DolbyIconProps) {
+export function DolbyIcon({ className = 'w-4 h-4', fill = '#FFFFFF', ...props }: DolbyIconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
-      fill="currentColor"
+      fill={fill}
       fillRule="evenodd"
       clipRule="evenodd"
       aria-hidden="true"

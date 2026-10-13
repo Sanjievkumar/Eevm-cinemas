@@ -218,7 +218,7 @@ export function MoviePoster({
               className="px-1.5 py-0.5 rounded bg-black/80 border border-brand-cyan/70 text-[0.58rem] font-bold text-brand-cyan uppercase tracking-wider backdrop-blur-sm shadow-md inline-flex items-center gap-1"
             >
               {fmt.toUpperCase().includes('DOLBY') && (
-                <DolbyIcon className="h-2.5 w-auto flex-shrink-0" />
+                <DolbyIcon className="h-2.5 w-auto text-white flex-shrink-0" />
               )}
               <span>{fmt}</span>
             </span>

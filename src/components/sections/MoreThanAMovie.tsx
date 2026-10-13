@@ -65,7 +65,7 @@ export function MoreThanAMovie() {
                   </span>
                   <div className="w-9 h-9 rounded-lg bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan group-hover:scale-110 transition-transform">
                     {(item.iconName === 'vision' || item.iconName === 'dolby') && (
-                      <DolbyIcon className="w-4.5 h-4.5 text-brand-cyan" />
+                      <DolbyIcon className="w-4.5 h-4.5 text-white" />
                     )}
                     {(item.iconName === 'atmos' || item.iconName === 'sound') && (
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
@@ -87,7 +87,7 @@ export function MoreThanAMovie() {
 
                 <h3 className="text-base sm:text-lg font-black tracking-wide text-cinema-pure-white group-hover:text-brand-cyan transition-colors uppercase inline-flex items-center gap-2">
                   {item.title.toUpperCase().includes('DOLBY') && (
-                    <DolbyIcon className="h-3.5 sm:h-4 w-auto text-brand-cyan flex-shrink-0" />
+                    <DolbyIcon className="h-3.5 sm:h-4 w-auto text-white flex-shrink-0" />
                   )}
                   <span>{item.title}</span>
                 </h3>
