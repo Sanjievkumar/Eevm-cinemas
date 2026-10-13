@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { DolbyIcon } from '@/components/ui/DolbyIcon';
 
 interface MoviePosterProps {
   src?: string;
@@ -214,9 +215,12 @@ export function MoviePoster({
           {formats.map((fmt) => (
             <span
               key={fmt}
-              className="px-1.5 py-0.5 rounded bg-black/80 border border-brand-cyan/70 text-[0.58rem] font-bold text-brand-cyan uppercase tracking-wider backdrop-blur-sm shadow-md"
+              className="px-1.5 py-0.5 rounded bg-black/80 border border-brand-cyan/70 text-[0.58rem] font-bold text-brand-cyan uppercase tracking-wider backdrop-blur-sm shadow-md inline-flex items-center gap-1"
             >
-              {fmt}
+              {fmt.toUpperCase().includes('DOLBY') && (
+                <DolbyIcon className="h-2.5 w-auto flex-shrink-0" />
+              )}
+              <span>{fmt}</span>
             </span>
           ))}
         </div>

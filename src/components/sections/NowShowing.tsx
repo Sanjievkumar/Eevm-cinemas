@@ -9,6 +9,7 @@ import {
 } from '@/lib/api/cinema-service';
 import { QuickBookingBar } from '@/components/ui/QuickBookingBar';
 import { MovieCard } from '@/components/ui/MovieCard';
+import { DolbyIcon } from '@/components/ui/DolbyIcon';
 
 export function NowShowing() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -254,7 +255,7 @@ export function NowShowing() {
         <div className="pt-8 border-t border-[#1E2631]/80">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
             {[
-              { label: 'Dolby Cinema Experience', icon: '★' },
+              { label: 'Dolby Cinema Experience', icon: <DolbyIcon className="w-3.5 h-3.5 text-brand-cyan" /> },
               { label: 'Premium Seating', icon: '🪑' },
               { label: 'Superior Sound', icon: '🔊' },
               { label: 'Food & Beverage', icon: '🍿' },

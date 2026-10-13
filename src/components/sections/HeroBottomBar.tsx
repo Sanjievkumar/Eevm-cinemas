@@ -1,15 +1,10 @@
-'use client';
+import { DolbyIcon } from '@/components/ui/DolbyIcon';
 
 export function HeroBottomBar() {
   const features = [
     {
       label: 'Dolby Cinemas',
-      icon: (
-        <svg className="w-5 h-5 text-brand-cyan" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h12A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6z" />
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 8.25h2.25a3.75 3.75 0 010 7.5h-2.25V8.25z" />
-        </svg>
-      ),
+      icon: <DolbyIcon className="w-5 h-5 text-brand-cyan" />,
     },
     {
       label: 'Dolby Atmos Sound',

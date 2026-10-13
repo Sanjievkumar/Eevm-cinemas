@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import type { LegacyMilestone } from '@/types';
 import { getLegacyMilestones } from '@/lib/api/cinema-service';
 import { SectionHeader } from '@/components/ui/SectionHeader';
+import { DolbyIcon } from '@/components/ui/DolbyIcon';
 
 export function LegacySection() {
   const [milestones, setMilestones] = useState<LegacyMilestone[]>([]);
@@ -84,8 +85,12 @@ export function LegacySection() {
 
               {/* Bottom Gradient Tag Overlay */}
               <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/95 via-black/60 to-transparent flex flex-col justify-end">
-                <span className="text-[0.62rem] font-bold tracking-[0.25em] text-brand-gold uppercase">
-                  ERA {activeMilestone?.year} &middot; {activeMilestone?.subtitle}
+                <span className="text-[0.62rem] font-bold tracking-[0.25em] text-brand-gold uppercase inline-flex items-center gap-1.5">
+                  <span>ERA {activeMilestone?.year} &middot;</span>
+                  {activeMilestone?.subtitle.toUpperCase().includes('DOLBY') && (
+                    <DolbyIcon className="h-2.5 w-auto flex-shrink-0" />
+                  )}
+                  <span>{activeMilestone?.subtitle}</span>
                 </span>
                 <h4 className="text-lg sm:text-xl font-black text-cinema-pure-white uppercase tracking-wide mt-0.5">
                   {activeMilestone?.title}
@@ -115,8 +120,11 @@ export function LegacySection() {
                         {m.year}
                       </span>
                     </div>
-                    <span className="text-[0.62rem] font-bold tracking-widest text-brand-cyan uppercase bg-brand-cyan/10 border border-brand-cyan/20 px-2.5 py-0.5 rounded">
-                      {m.subtitle}
+                    <span className="text-[0.62rem] font-bold tracking-widest text-brand-cyan uppercase bg-brand-cyan/10 border border-brand-cyan/20 px-2.5 py-0.5 rounded inline-flex items-center gap-1.5">
+                      {m.subtitle.toUpperCase().includes('DOLBY') && (
+                        <DolbyIcon className="h-2.5 w-auto flex-shrink-0" />
+                      )}
+                      <span>{m.subtitle}</span>
                     </span>
                   </div>
 

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import type { ScreenDetail } from '@/types';
 import { getScreenDetails } from '@/lib/api/cinema-service';
 import { SectionHeader } from '@/components/ui/SectionHeader';
+import { DolbyIcon } from '@/components/ui/DolbyIcon';
 
 export function TwoScreens() {
   const [screens, setScreens] = useState<ScreenDetail[]>([]);
@@ -74,8 +75,11 @@ export function TwoScreens() {
               {/* Lower Section: Title, Description & Specifications */}
               <div className="p-6 sm:p-7 space-y-5">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-black text-cinema-pure-white tracking-wide uppercase group-hover:text-brand-gold transition-colors">
-                    {screen.title}
+                  <h3 className="text-xl sm:text-2xl font-black text-cinema-pure-white tracking-wide uppercase group-hover:text-brand-gold transition-colors inline-flex items-center gap-2.5">
+                    {screen.title.toUpperCase().includes('DOLBY') && (
+                      <DolbyIcon className="h-4.5 sm:h-5 w-auto text-brand-gold flex-shrink-0" />
+                    )}
+                    <span>{screen.title}</span>
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm text-cinema-gray-300 leading-relaxed font-light">
                     {screen.description}
@@ -89,8 +93,11 @@ export function TwoScreens() {
                       <span className="block text-[0.58rem] font-semibold text-cinema-gray-400 uppercase tracking-widest">
                         {spec.label}
                       </span>
-                      <span className="block text-xs font-black text-brand-cyan uppercase tracking-wider mt-1">
-                        {spec.value}
+                      <span className="block text-xs font-black text-brand-cyan uppercase tracking-wider mt-1 inline-flex items-center gap-1.5">
+                        {spec.value.toUpperCase().includes('DOLBY') && (
+                          <DolbyIcon className="h-2.5 w-auto text-brand-cyan flex-shrink-0" />
+                        )}
+                        <span>{spec.value}</span>
                       </span>
                     </div>
                   ))}
