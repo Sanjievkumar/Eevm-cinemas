@@ -97,8 +97,22 @@ export function Contact() {
                 <dt className="text-[0.62rem] font-bold tracking-[0.2em] uppercase text-brand-gold">
                   LOCATION
                 </dt>
-                <dd className="text-base font-semibold text-cinema-pure-white mt-1">
-                  Kochi, Keralam
+                <dd className="text-sm sm:text-base font-semibold text-cinema-pure-white mt-1 leading-relaxed">
+                  {contactDetails.addressLine ? (
+                    <a
+                      href={contactDetails.mapsUrl || 'https://maps.google.com/?q=Opp.+EVM+Theater,+Chullickal,+Kochi,+Kerala+682005'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-brand-gold transition-colors inline-flex items-start gap-1.5"
+                    >
+                      <span>{contactDetails.addressLine}</span>
+                      <svg className="w-3.5 h-3.5 text-brand-gold flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                      </svg>
+                    </a>
+                  ) : (
+                    'Kochi, Keralam'
+                  )}
                 </dd>
               </div>
             </dl>

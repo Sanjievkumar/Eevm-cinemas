@@ -39,7 +39,7 @@ export function LocationSection() {
                 EVM CINEMAS
               </h3>
               <p className="text-xs sm:text-sm font-bold tracking-wider uppercase text-brand-gold mt-1">
-                Kochi, Keralam
+                Opp. EVM Theater, Chullickal, Kochi, Keralam 682005
               </p>
               {contactDetails.phone && (
                 <div className="mt-2 flex items-center gap-2 text-xs text-cinema-gray-300">
@@ -57,21 +57,22 @@ export function LocationSection() {
             </div>
 
             <p className="text-xs sm:text-sm text-cinema-gray-300 font-light leading-relaxed">
-              EVM Cinemas is located in Kochi, Keralam. Complete map coordinates and turn-by-turn navigation links will be integrated here upon official location launch.
+              {contactDetails.locationDescription}
             </p>
 
             <div>
-              <button
-                type="button"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase bg-[#141A24] border border-[#273244] text-cinema-gray-400 cursor-not-allowed"
-                aria-disabled="true"
+              <a
+                href={contactDetails.mapsUrl || 'https://maps.google.com/?q=Opp.+EVM+Theater,+Chullickal,+Kochi,+Kerala+682005'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase bg-[#141A24] border border-brand-gold/60 text-brand-gold hover:bg-brand-gold hover:text-cinema-black transition-all shadow-[0_0_20px_rgba(201,168,76,0.25)] hover:shadow-[0_0_25px_rgba(201,168,76,0.45)] transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
               >
-                <svg className="w-4 h-4 text-brand-gold" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <svg className="w-4 h-4 text-current" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                 </svg>
-                <span>GET DIRECTIONS — LINK COMING SOON</span>
-              </button>
+                <span>GET DIRECTIONS ON GOOGLE MAPS</span>
+              </a>
             </div>
           </div>
 

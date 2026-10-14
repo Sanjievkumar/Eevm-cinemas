@@ -39,7 +39,20 @@ export function Footer() {
             <h3 className="text-overline mb-4">Location</h3>
             <address className="not-italic space-y-2 text-sm text-cinema-gray-400">
               <p>{cinemaInfo.name}</p>
-              <p>{contactDetails.addressLine ?? 'Kochi, Keralam'}</p>
+              <p>
+                {contactDetails.mapsUrl ? (
+                  <a
+                    href={contactDetails.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-cinema-pure-white transition-colors"
+                  >
+                    {contactDetails.addressLine}
+                  </a>
+                ) : (
+                  contactDetails.addressLine
+                )}
+              </p>
               {contactDetails.phone && (
                 <p>
                   <a href={`tel:${contactDetails.phone.replace(/[\s+]/g, '')}`} className="hover:text-brand-gold transition-colors">
