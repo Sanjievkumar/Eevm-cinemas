@@ -53,7 +53,7 @@ export const cinemaInfo: CinemaInfo = {
   city: 'KOCHI',
   state: 'KERALAM',
   pincode: '682001',
-  phone: '+91 98765 43210',
+  phone: '+91 484 485 7577',
   email: 'info@evmcinemas.com',
   mapUrl: 'https://maps.google.com/?q=EVM+Cinemas+Kochi',
   mapEmbedUrl:
@@ -79,9 +79,10 @@ export const cinemaInfo: CinemaInfo = {
     },
   ],
   socialLinks: {
-    instagram: 'https://instagram.com/evmcinemas',
-    facebook: 'https://facebook.com/evmcinemas',
-    youtube: 'https://youtube.com/@evmcinemas',
+    twitter: 'https://x.com/EVMCinemasKochi',
+    instagram: 'https://www.instagram.com/evmcinemasfortkochi/',
+    facebook: 'https://www.facebook.com/evmcinemasfortkochi',
+    youtube: 'https://www.youtube.com/@evmcinemafortkochi',
   },
   operatingHours: '9:00 AM – 11:30 PM',
 };
@@ -514,15 +515,16 @@ export const contactDetails: {
   mapsUrl: string | null;
   socials: { label: string; href: string | null }[];
 } = {
-  phone: null,
+  phone: '+91 484 485 7577',
   email: null,
   addressLine: 'Kochi, Keralam',
   locationDescription:
     'EVM Cinemas is located in Kochi, Keralam. Detailed address and directions will be added here.',
   mapsUrl: null,
   socials: [
-    { label: 'Instagram', href: null },
-    { label: 'Facebook', href: null },
-    { label: 'YouTube', href: null },
+    { label: 'Instagram', href: 'https://www.instagram.com/evmcinemasfortkochi/' },
+    { label: 'Facebook', href: 'https://www.facebook.com/evmcinemasfortkochi' },
+    { label: 'YouTube', href: 'https://www.youtube.com/@evmcinemafortkochi' },
+    { label: 'X (Twitter)', href: 'https://x.com/EVMCinemasKochi' },
   ],
 };

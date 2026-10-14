@@ -40,7 +40,13 @@ export function Footer() {
             <address className="not-italic space-y-2 text-sm text-cinema-gray-400">
               <p>{cinemaInfo.name}</p>
               <p>{contactDetails.addressLine ?? 'Kochi, Keralam'}</p>
-              {contactDetails.phone && <p>{contactDetails.phone}</p>}
+              {contactDetails.phone && (
+                <p>
+                  <a href={`tel:${contactDetails.phone.replace(/[\s+]/g, '')}`} className="hover:text-brand-gold transition-colors">
+                    {contactDetails.phone}
+                  </a>
+                </p>
+              )}
               {contactDetails.email && <p>{contactDetails.email}</p>}
             </address>
           </div>

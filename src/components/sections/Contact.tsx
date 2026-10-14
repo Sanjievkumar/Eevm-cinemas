@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
+import { contactDetails } from '@/lib/data/mock-data';
 
 type FormErrors = Partial<Record<'name' | 'email' | 'message', string>>;
 
@@ -67,7 +68,19 @@ export function Contact() {
                   PHONE
                 </dt>
                 <dd className="text-base font-semibold text-cinema-pure-white mt-1">
-                  To be supplied
+                  {contactDetails.phone ? (
+                    <a
+                      href={`tel:${contactDetails.phone.replace(/[\s+]/g, '')}`}
+                      className="hover:text-brand-gold transition-colors inline-flex items-center gap-2"
+                    >
+                      <svg className="w-4 h-4 text-brand-gold" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                      </svg>
+                      <span>{contactDetails.phone}</span>
+                    </a>
+                  ) : (
+                    'To be supplied'
+                  )}
                 </dd>
               </div>
 
@@ -96,14 +109,21 @@ export function Contact() {
                 CONNECT WITH US
               </span>
               <div className="flex flex-wrap gap-3">
-                {['INSTAGRAM', 'FACEBOOK', 'YOUTUBE'].map((platform) => (
-                  <button
-                    key={platform}
-                    type="button"
-                    className="px-5 py-2.5 rounded-full border border-[#273244] bg-[#0C1017] text-xs font-bold uppercase tracking-wider text-cinema-gray-300 hover:border-brand-cyan hover:text-cinema-pure-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan"
-                  >
-                    {platform}
-                  </button>
+                {contactDetails.socials.map((platform) => (
+                  platform.href ? (
+                    <a
+                      key={platform.label}
+                      href={platform.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2.5 rounded-full border border-[#273244] bg-[#0C1017] text-xs font-bold uppercase tracking-wider text-cinema-gray-300 hover:border-brand-cyan hover:text-cinema-pure-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan inline-flex items-center gap-2"
+                    >
+                      <span>{platform.label}</span>
+                      <svg className="w-3 h-3 text-cinema-gray-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                      </svg>
+                    </a>
+                  ) : null
                 ))}
               </div>
             </div>
