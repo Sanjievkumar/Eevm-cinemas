@@ -9,7 +9,6 @@ import {
 } from '@/lib/api/cinema-service';
 import { QuickBookingBar } from '@/components/ui/QuickBookingBar';
 import { MovieCard } from '@/components/ui/MovieCard';
-import { DolbyIcon } from '@/components/ui/DolbyIcon';
 
 export function NowShowing() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -250,30 +249,6 @@ export function NowShowing() {
             ))}
           </div>
         )}
-
-        {/* 6. Section Bottom Feature Bar (Matches Bottom of Page 2 in EVM Mockup) */}
-        <div className="pt-8 border-t border-[#1E2631]/80">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            {[
-              { label: 'Dolby Cinema Experience', icon: <DolbyIcon className="w-3.5 h-3.5 text-white" /> },
-              { label: 'Premium Seating', icon: '🪑' },
-              { label: 'Superior Sound', icon: '🔊' },
-              { label: 'Food & Beverage', icon: '🍿' },
-              { label: 'Parking Facility', icon: '🅿' },
-              { label: 'Premium Amenities', icon: '✨' },
-            ].map((feature) => (
-              <div
-                key={feature.label}
-                className="flex items-center gap-2.5 p-3 rounded-lg bg-[#0E121A] border border-[#1E2631] hover:border-brand-cyan/40 transition-colors"
-              >
-                <span className="text-brand-cyan text-xs">{feature.icon}</span>
-                <span className="text-[0.65rem] font-semibold tracking-wider text-cinema-gray-300 uppercase leading-tight">
-                  {feature.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
 
       </div>
     </section>

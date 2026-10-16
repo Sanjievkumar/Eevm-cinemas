@@ -52,7 +52,7 @@ export function Contact() {
       <div className="max-w-[1400px] mx-auto space-y-10 sm:space-y-14">
         {/* Section Header */}
         <SectionHeader
-          number="08"
+          number="09"
           eyebrowText="CONTACT"
           titleWhite="GET IN"
           titleGold="TOUCH."
