@@ -54,7 +54,7 @@ export const cinemaInfo: CinemaInfo = {
   state: 'KERALAM',
   pincode: '682005',
   phone: '+91 484 485 7577',
-  email: 'info@evmcinemas.com',
+  email: 'Admin@evmcinemas.com',
   mapUrl: 'https://maps.google.com/?q=Opp.+EVM+Theater,+Chullickal,+Kochi,+Kerala+682005',
   mapEmbedUrl:
     'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15719.1039818858!2d76.2520!3d9.9455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b086d493a39e877%3A0x6b44a86b360b9432!2sChullickal%2C%20Kochi%2C%20Kerala%20682005!5e0!3m2!1sen!2sin!4v1',
@@ -526,13 +526,18 @@ export const mockShowDates: ShowDate[] = [];
 export const contactDetails: {
   phone: string | null;
   email: string | null;
+  emails: { label: string; email: string }[];
   addressLine: string | null;
   locationDescription: string;
   mapsUrl: string | null;
   socials: { label: string; href: string | null }[];
 } = {
   phone: '+91 484 485 7577',
-  email: null,
+  email: 'Admin@evmcinemas.com',
+  emails: [
+    { label: 'Admin', email: 'Admin@evmcinemas.com' },
+    { label: 'Projection', email: 'Projection@evmcinemas.com' },
+  ],
   addressLine: 'Opp. EVM Theater, Chullickal, Kochi, Keralam 682005',
   locationDescription:
     'EVM Cinemas is located at Opp. EVM Theater, Chullickal, Kochi, Keralam 682005.',

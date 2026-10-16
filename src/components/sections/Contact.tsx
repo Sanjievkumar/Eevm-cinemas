@@ -88,8 +88,36 @@ export function Contact() {
                 <dt className="text-[0.62rem] font-bold tracking-[0.2em] uppercase text-brand-gold">
                   EMAIL
                 </dt>
-                <dd className="text-base font-semibold text-cinema-pure-white mt-1">
-                  To be supplied
+                <dd className="mt-2 space-y-2">
+                  <div>
+                    <span className="block text-[0.65rem] font-semibold text-cinema-gray-400 uppercase tracking-wider">
+                      Administration
+                    </span>
+                    <a
+                      href="mailto:Admin@evmcinemas.com"
+                      className="text-sm sm:text-base font-semibold text-cinema-pure-white hover:text-brand-gold transition-colors inline-flex items-center gap-2 mt-0.5"
+                    >
+                      <svg className="w-4 h-4 text-brand-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                      </svg>
+                      <span>Admin@evmcinemas.com</span>
+                    </a>
+                  </div>
+
+                  <div>
+                    <span className="block text-[0.65rem] font-semibold text-cinema-gray-400 uppercase tracking-wider">
+                      Technical & Projection
+                    </span>
+                    <a
+                      href="mailto:Projection@evmcinemas.com"
+                      className="text-sm sm:text-base font-semibold text-cinema-pure-white hover:text-brand-gold transition-colors inline-flex items-center gap-2 mt-0.5"
+                    >
+                      <svg className="w-4 h-4 text-brand-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                      </svg>
+                      <span>Projection@evmcinemas.com</span>
+                    </a>
+                  </div>
                 </dd>
               </div>
 

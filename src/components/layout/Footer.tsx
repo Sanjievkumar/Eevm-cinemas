@@ -60,7 +60,18 @@ export function Footer() {
                   </a>
                 </p>
               )}
-              {contactDetails.email && <p>{contactDetails.email}</p>}
+              <div className="pt-1 space-y-1">
+                <p>
+                  <a href="mailto:Admin@evmcinemas.com" className="hover:text-brand-gold transition-colors">
+                    Admin@evmcinemas.com
+                  </a>
+                </p>
+                <p>
+                  <a href="mailto:Projection@evmcinemas.com" className="hover:text-brand-gold transition-colors">
+                    Projection@evmcinemas.com
+                  </a>
+                </p>
+              </div>
             </address>
           </div>
 
