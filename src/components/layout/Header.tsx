@@ -145,7 +145,7 @@ export function Header() {
 
             {/* BOOK TICKETS -> Gold Pill CTA */}
             <Link
-              href="#now-showing"
+              href="/#now-showing"
               className={cn(
                 'inline-flex items-center gap-2',
                 'px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase',
@@ -231,7 +231,7 @@ export function Header() {
 
         <div className="pt-6 border-t border-[#1E2631]">
           <Link
-            href="#now-showing"
+            href="/#now-showing"
             className="w-full py-3 rounded-full bg-brand-gold text-cinema-black font-bold text-center block text-sm uppercase tracking-wider shadow-lg"
             onClick={closeMobileMenu}
           >

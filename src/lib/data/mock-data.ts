@@ -17,13 +17,13 @@ import type {
 // =============================================================================
 
 export const navigationItems: NavItem[] = [
-  { label: 'Home', href: '#hero' },
-  { label: 'Now Showing', href: '#now-showing' },
-  { label: 'Coming Soon', href: '#coming-soon' },
-  { label: 'Our Screens', href: '#screens' },
-  { label: 'About', href: '#about' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/#hero' },
+  { label: 'Now Showing', href: '/#now-showing' },
+  { label: 'Coming Soon', href: '/#coming-soon' },
+  { label: 'Our Screens', href: '/#screens' },
+  { label: 'About', href: '/#about' },
+  { label: 'Gallery', href: '/#gallery' },
+  { label: 'Contact', href: '/#contact' },
 ];
 
 // =============================================================================

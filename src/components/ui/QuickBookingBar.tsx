@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import type { Movie, Showtime } from '@/types';
 import { getBookingUrl } from '@/lib/api/cinema-service';
 
@@ -39,7 +40,7 @@ export function QuickBookingBar({
     onDateChange?.(val);
   };
 
-  const currentBookingUrl = getBookingUrl(selectedShowtimeId);
+  const currentBookingUrl = getBookingUrl(selectedShowtimeId || localMovieId);
 
   return (
     <div className="w-full bg-[#0C1017]/90 border border-[#1E2631] rounded-2xl p-4 sm:p-6 shadow-2xl shadow-black/80 backdrop-blur-lg">
@@ -111,19 +112,17 @@ export function QuickBookingBar({
           </select>
         </div>
 
-        {/* 4. BOOK TICKETS Button */}
+        {/* 4. BOOK NOW Button */}
         <div className="flex flex-col justify-end pt-2 sm:pt-0">
-          <a
+          <Link
             href={currentBookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
             className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-lg text-xs sm:text-sm font-bold tracking-wider uppercase bg-brand-gold text-cinema-black hover:bg-brand-gold-light transition-all shadow-[0_0_20px_rgba(201,168,76,0.3)] hover:shadow-[0_0_25px_rgba(201,168,76,0.5)] transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
           >
-            <span>BOOK TICKETS</span>
+            <span>BOOK NOW</span>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

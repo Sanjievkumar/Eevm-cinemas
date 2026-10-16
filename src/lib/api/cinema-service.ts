@@ -116,8 +116,13 @@ export async function getGalleryItems(
 }
 
 /**
- * Generate external BookMyShow booking URL for a given showtime ID.
+ * Internal route for online movie booking.
+ * Directs users to the internal /booking Coming Soon page until online ticket booking goes live.
+ * Easily swappable to an external URL or live booking flow when the client is ready.
  */
-export function getBookingUrl(showtimeId?: string): string {
-  return `https://in.bookmyshow.com/buytickets/evm-cinemas-kochi/${showtimeId || 'show'}`;
+export function getBookingUrl(showtimeOrMovieId?: string): string {
+  if (showtimeOrMovieId) {
+    return `/booking?ref=${encodeURIComponent(showtimeOrMovieId)}`;
+  }
+  return '/booking';
 }

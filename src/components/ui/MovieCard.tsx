@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import type { Movie, Showtime } from '@/types';
 import { getBookingUrl } from '@/lib/api/cinema-service';
 import { MoviePoster } from './MoviePoster';
@@ -89,19 +90,17 @@ export function MovieCard({ movie, showtimes }: MovieCardProps) {
           </div>
         </div>
 
-        {/* 4. SHOWTIMES Action Button (Fully visible, no clipping) */}
+        {/* 4. BOOK NOW Action Button */}
         <div className="pt-0.5">
-          <a
+          <Link
             href={bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
             className="w-full inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-[0.7rem] font-bold tracking-wider uppercase bg-[#141A24] border border-brand-gold/60 text-brand-gold hover:bg-brand-gold hover:text-cinema-black transition-all duration-300 shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
           >
-            <span>SHOWTIMES</span>
+            <span>BOOK NOW</span>
             <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
