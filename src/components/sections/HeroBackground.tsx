@@ -7,43 +7,51 @@ interface HeroBackgroundProps {
 
 /**
  * HeroBackground — Photographic theatre background for EVM CINEMAS.
- * Placed with tailored responsive positioning (theatre building on the right, content on the left)
- * and directional lighting vignette for maximum clarity and sharpness.
+ * Anchored to the right on desktop so the illuminated theatre facade, EVM logo,
+ * and Dolby Cinema entrance are prominently displayed without competing with the headline.
  */
 export function HeroBackground({
   src = '/images/gallery/evm-exterior-night.png',
 }: HeroBackgroundProps) {
   return (
     <div className="absolute inset-0 overflow-hidden select-none pointer-events-none" aria-hidden="true">
-      {/* 1. Theatre Exterior Photograph Container */}
-      <div className="absolute inset-0">
-        <img
-          src={src}
-          alt="EVM Cinemas Building at Night"
-          className="w-full h-full object-cover object-[center_30%] lg:object-[75%_35%] xl:object-[80%_35%] transition-transform duration-700"
-        />
+      {/* 1. Deep Pitch Obsidian Base Background */}
+      <div className="absolute inset-0 bg-[#060709]" />
+
+      {/* 2. Right-Anchored Theatre Exterior Photo */}
+      <div className="absolute right-0 top-0 w-full lg:w-[64%] xl:w-[58%] h-full overflow-hidden flex items-center justify-end">
+        <div className="relative w-full h-full flex items-center justify-center lg:justify-end">
+          <img
+            src={src}
+            alt="EVM Cinemas Building at Night"
+            className="w-full h-full object-cover object-[center_35%] lg:object-[center_center] transition-transform duration-700"
+          />
+
+          {/* Left-to-Right Dissolve: Seamlessly merges the left edge of the photo into the pitch black backdrop */}
+          <div className="absolute inset-y-0 left-0 w-28 sm:w-48 lg:w-72 bg-gradient-to-r from-[#060709] via-[#060709]/80 to-transparent" />
+
+          {/* Top Dissolve for Navbar */}
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#060709] via-[#060709]/60 to-transparent" />
+
+          {/* Bottom Dissolve for HeroBottomBar */}
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#060709] via-[#060709]/60 to-transparent" />
+
+          {/* Right Edge Soft Vignette */}
+          <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#060709]/40 to-transparent" />
+        </div>
       </div>
 
-      {/* 2. Soft Ambient Cyan Aura (Amplifies the theatre's blue neon roof lighting) */}
+      {/* 3. Subtle Ambient Cyan Glow (Harmonizes with EVM's blue neon canopy lighting) */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute top-1/4 right-[15%] w-[500px] h-[350px] pointer-events-none opacity-30"
         style={{
           background:
-            'radial-gradient(ellipse 60% 45% at 75% 30%, rgba(0, 216, 246, 0.14) 0%, transparent 65%)',
+            'radial-gradient(ellipse at center, rgba(0, 216, 246, 0.2) 0%, rgba(201, 168, 76, 0.08) 45%, transparent 70%)',
         }}
       />
 
-      {/* 3. Directional Vignette Gradient (Ensures left text is razor sharp while right building is clear & bright) */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: `
-            linear-gradient(to right, #060709 0%, rgba(6, 7, 9, 0.88) 32%, rgba(6, 7, 9, 0.35) 60%, transparent 88%),
-            linear-gradient(to top, #060709 0%, rgba(6, 7, 9, 0.6) 8%, transparent 24%),
-            linear-gradient(to bottom, rgba(6, 7, 9, 0.75) 0%, transparent 18%)
-          `,
-        }}
-      />
+      {/* 4. Left Hero Content Protection Gradient (Ensures white and gold typography has 100% crisp contrast) */}
+      <div className="absolute inset-y-0 left-0 w-full lg:w-[52%] bg-gradient-to-r from-[#060709] via-[#060709]/90 to-transparent pointer-events-none" />
     </div>
   );
 }
