@@ -1,71 +1,37 @@
 'use client';
 
-import { useState } from 'react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { contactDetails } from '@/lib/data/mock-data';
 
-type FormErrors = Partial<Record<'name' | 'email' | 'message', string>>;
-
 export function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [errors, setErrors] = useState<FormErrors>({});
-  const [isSuccess, setIsSuccess] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name as keyof FormErrors]) {
-      setErrors((prev) => ({ ...prev, [name]: undefined }));
-    }
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const newErrors: FormErrors = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'Please enter your name.';
-    }
-    if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address.';
-    }
-    if (!formData.message.trim() || formData.message.trim().length < 10) {
-      newErrors.message = 'Please enter a message (at least 10 characters).';
-    }
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      setIsSuccess(false);
-    } else {
-      setErrors({});
-      setIsSuccess(true);
-      setFormData({ name: '', email: '', message: '' });
-    }
-  };
+  const directionsUrl =
+    contactDetails.mapsUrl ||
+    'https://www.google.com/maps/place/EVM+Cinemas/@9.9468237,76.2556623,17z/data=!3m1!4b1!4m6!3m5!1s0x3b0873400b95738d:0x247a16fecf1f31f9!8m2!3d9.9468237!4d76.2556623!16s%2Fg%2F11b8zcg34q';
 
   return (
     <section
       id="contact"
       className="relative bg-[#060709] border-t border-[#1E2631] py-16 sm:py-24 px-4 sm:px-6 lg:px-10 overflow-hidden"
-      aria-label="Contact"
+      aria-label="Contact and Location"
     >
       <div className="max-w-[1400px] mx-auto space-y-10 sm:space-y-14">
         {/* Section Header */}
         <SectionHeader
-          number="08"
-          eyebrowText="CONTACT"
-          titleWhite="GET IN"
-          titleGold="TOUCH."
+          number="09"
+          eyebrowText="CONTACT &amp; LOCATION"
+          titleWhite="VISIT &amp;"
+          titleGold="GET IN TOUCH."
         />
 
-        {/* Two-Column Contact Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-          {/* Left Column: Contact Details & Social Buttons */}
-          <div className="space-y-8">
+        {/* Two-Column Contact & Location Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          {/* Left Column: Contact Details & Social Links (5 cols on lg) */}
+          <div className="lg:col-span-5 space-y-8">
             <dl className="space-y-6">
+              {/* Phone */}
               <div>
                 <dt className="text-[0.62rem] font-bold tracking-[0.2em] uppercase text-brand-gold">
-                  PHONE
+                  PHONE ENQUIRIES
                 </dt>
                 <dd className="text-base font-semibold text-cinema-pure-white mt-1">
                   {contactDetails.phone ? (
@@ -73,7 +39,7 @@ export function Contact() {
                       href={`tel:${contactDetails.phone.replace(/[\s+]/g, '')}`}
                       className="hover:text-brand-gold transition-colors inline-flex items-center gap-2"
                     >
-                      <svg className="w-4 h-4 text-brand-gold" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <svg className="w-4 h-4 text-brand-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                       </svg>
                       <span>{contactDetails.phone}</span>
@@ -84,35 +50,36 @@ export function Contact() {
                 </dd>
               </div>
 
+              {/* Official Emails */}
               <div>
                 <dt className="text-[0.62rem] font-bold tracking-[0.2em] uppercase text-brand-gold">
-                  EMAIL
+                  OFFICIAL EMAIL DIRECTORY
                 </dt>
                 <dd className="mt-2 space-y-2">
-                  <div>
-                    <span className="block text-[0.65rem] font-semibold text-cinema-gray-400 uppercase tracking-wider">
-                      Administration
+                  <div className="p-3 rounded-lg bg-[#0C1017] border border-[#1E2631]">
+                    <span className="block text-[0.62rem] font-semibold text-cinema-gray-400 uppercase tracking-wider">
+                      Administration &amp; Management
                     </span>
                     <a
                       href="mailto:Admin@evmcinemas.com"
-                      className="text-sm sm:text-base font-semibold text-cinema-pure-white hover:text-brand-gold transition-colors inline-flex items-center gap-2 mt-0.5"
+                      className="text-xs sm:text-sm font-semibold text-cinema-pure-white hover:text-brand-gold transition-colors inline-flex items-center gap-2 mt-0.5"
                     >
-                      <svg className="w-4 h-4 text-brand-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <svg className="w-3.5 h-3.5 text-brand-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                       </svg>
                       <span>Admin@evmcinemas.com</span>
                     </a>
                   </div>
 
-                  <div>
-                    <span className="block text-[0.65rem] font-semibold text-cinema-gray-400 uppercase tracking-wider">
-                      Technical & Projection
+                  <div className="p-3 rounded-lg bg-[#0C1017] border border-[#1E2631]">
+                    <span className="block text-[0.62rem] font-semibold text-cinema-gray-400 uppercase tracking-wider">
+                      Projection &amp; Technical Operations
                     </span>
                     <a
                       href="mailto:Projection@evmcinemas.com"
-                      className="text-sm sm:text-base font-semibold text-cinema-pure-white hover:text-brand-gold transition-colors inline-flex items-center gap-2 mt-0.5"
+                      className="text-xs sm:text-sm font-semibold text-cinema-pure-white hover:text-brand-gold transition-colors inline-flex items-center gap-2 mt-0.5"
                     >
-                      <svg className="w-4 h-4 text-brand-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <svg className="w-3.5 h-3.5 text-brand-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                       </svg>
                       <span>Projection@evmcinemas.com</span>
@@ -121,44 +88,54 @@ export function Contact() {
                 </dd>
               </div>
 
+              {/* Physical Address */}
               <div>
                 <dt className="text-[0.62rem] font-bold tracking-[0.2em] uppercase text-brand-gold">
-                  LOCATION
+                  THEATRE ADDRESS
                 </dt>
-                <dd className="text-sm sm:text-base font-semibold text-cinema-pure-white mt-1 leading-relaxed">
-                  {contactDetails.addressLine ? (
-                    <a
-                      href={contactDetails.mapsUrl || 'https://maps.google.com/?q=Opp.+EVM+Theater,+Chullickal,+Kochi,+Kerala+682005'}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-brand-gold transition-colors inline-flex items-start gap-1.5"
-                    >
-                      <span>{contactDetails.addressLine}</span>
-                      <svg className="w-3.5 h-3.5 text-brand-gold flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                      </svg>
-                    </a>
-                  ) : (
-                    'Kochi, Keralam'
-                  )}
+                <dd className="text-sm font-semibold text-cinema-pure-white mt-1 leading-relaxed">
+                  <a
+                    href={directionsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-brand-gold transition-colors inline-flex items-start gap-1.5"
+                  >
+                    <span>{contactDetails.addressLine}</span>
+                    <svg className="w-3.5 h-3.5 text-brand-gold flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                    </svg>
+                  </a>
                 </dd>
+              </div>
+
+              {/* Box Office Counter Hours */}
+              <div className="p-3.5 rounded-lg bg-[#0C1017] border border-[#1E2631] space-y-1">
+                <span className="block text-[0.62rem] font-bold tracking-widest uppercase text-brand-cyan">
+                  BOX OFFICE COUNTER
+                </span>
+                <p className="text-xs text-cinema-gray-300">
+                  Open Daily &bull; 9:30 AM &ndash; 11:30 PM
+                </p>
+                <p className="text-[0.68rem] text-cinema-gray-400">
+                  Counter bookings and ticket collections open at theatre entrance.
+                </p>
               </div>
             </dl>
 
-            {/* Social Buttons */}
-            <div className="pt-4 space-y-3">
+            {/* Social Channels */}
+            <div className="pt-2 space-y-3">
               <span className="block text-[0.62rem] font-bold tracking-[0.2em] uppercase text-brand-cyan">
                 CONNECT WITH US
               </span>
-              <div className="flex flex-wrap gap-3">
-                {contactDetails.socials.map((platform) => (
+              <div className="flex flex-wrap gap-2.5">
+                {contactDetails.socials.map((platform) =>
                   platform.href ? (
                     <a
                       key={platform.label}
                       href={platform.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-2.5 rounded-full border border-[#273244] bg-[#0C1017] text-xs font-bold uppercase tracking-wider text-cinema-gray-300 hover:border-brand-cyan hover:text-cinema-pure-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan inline-flex items-center gap-2"
+                      className="px-4 py-2 rounded-full border border-[#273244] bg-[#0C1017] text-xs font-bold uppercase tracking-wider text-cinema-gray-300 hover:border-brand-gold hover:text-cinema-pure-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold inline-flex items-center gap-1.5"
                     >
                       <span>{platform.label}</span>
                       <svg className="w-3 h-3 text-cinema-gray-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -166,89 +143,82 @@ export function Contact() {
                       </svg>
                     </a>
                   ) : null
-                ))}
+                )}
               </div>
             </div>
           </div>
 
-          {/* Right Column: Premium Contact Form Card */}
-          <div className="bg-[#0C1017] border border-[#1E2631] rounded-2xl p-6 sm:p-8 space-y-6 shadow-2xl">
-            <form onSubmit={handleSubmit} noValidate className="space-y-5">
-              {/* YOUR NAME Field */}
-              <div className="space-y-1.5">
-                <label htmlFor="contact-name" className="text-[0.65rem] font-bold tracking-wider uppercase text-cinema-gray-300">
-                  YOUR NAME
-                </label>
-                <input
-                  id="contact-name"
-                  name="name"
-                  type="text"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Enter your full name"
-                  className="w-full bg-[#141A24] border border-[#273244] rounded-lg px-4 py-3 text-xs sm:text-sm font-semibold text-cinema-pure-white placeholder:text-cinema-gray-500 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/50 transition-colors"
-                />
-                {errors.name && (
-                  <p className="text-xs text-red-400 font-semibold mt-1">{errors.name}</p>
-                )}
-              </div>
-
-              {/* EMAIL Field */}
-              <div className="space-y-1.5">
-                <label htmlFor="contact-email" className="text-[0.65rem] font-bold tracking-wider uppercase text-cinema-gray-300">
-                  EMAIL
-                </label>
-                <input
-                  id="contact-email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter your email address"
-                  className="w-full bg-[#141A24] border border-[#273244] rounded-lg px-4 py-3 text-xs sm:text-sm font-semibold text-cinema-pure-white placeholder:text-cinema-gray-500 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/50 transition-colors"
-                />
-                {errors.email && (
-                  <p className="text-xs text-red-400 font-semibold mt-1">{errors.email}</p>
-                )}
-              </div>
-
-              {/* MESSAGE Field */}
-              <div className="space-y-1.5">
-                <label htmlFor="contact-message" className="text-[0.65rem] font-bold tracking-wider uppercase text-cinema-gray-300">
-                  MESSAGE
-                </label>
-                <textarea
-                  id="contact-message"
-                  name="message"
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Write your enquiry message here..."
-                  className="w-full bg-[#141A24] border border-[#273244] rounded-lg px-4 py-3 text-xs sm:text-sm font-semibold text-cinema-pure-white placeholder:text-cinema-gray-500 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/50 transition-colors resize-none"
-                />
-                {errors.message && (
-                  <p className="text-xs text-red-400 font-semibold mt-1">{errors.message}</p>
-                )}
-              </div>
-
-              {/* Gold Submit Button */}
-              <button
-                type="submit"
-                className="w-full py-3.5 px-6 rounded-full text-xs font-bold tracking-wider uppercase bg-brand-gold text-cinema-black hover:bg-brand-gold-light transition-all shadow-[0_0_20px_rgba(201,168,76,0.3)] hover:shadow-[0_0_25px_rgba(201,168,76,0.5)] transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
-              >
-                SEND ENQUIRY
-              </button>
-
-              {/* Client-Side Validation Confirmation Toast */}
-              {isSuccess && (
-                <div className="p-4 rounded-xl bg-brand-cyan/10 border border-brand-cyan/40 text-brand-cyan text-xs font-semibold tracking-wide flex items-center justify-center gap-2.5 animate-fade-in shadow-[0_0_15px_rgba(0,216,246,0.15)]">
-                  <svg className="w-4 h-4 text-brand-cyan flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
-                  <span>Enquiry validated successfully! Form data logged.</span>
+          {/* Right Column: Accurate Interactive Google Map (7 cols on lg) */}
+          <div className="lg:col-span-7 bg-[#0C1017] border border-[#1E2631] rounded-2xl p-4 sm:p-6 space-y-4 shadow-2xl">
+            {/* Map Card Header */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#1E2631]">
+              <div className="space-y-0.5">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-brand-cyan animate-pulse shadow-[0_0_8px_#00D8F6]" />
+                  <span className="text-[0.68rem] font-bold tracking-[0.2em] uppercase text-brand-gold">
+                    LIVE THEATRE LOCATION
+                  </span>
                 </div>
-              )}
-            </form>
+                <h4 className="text-base sm:text-lg font-black text-cinema-pure-white uppercase tracking-wide">
+                  EVM Cinemas, Fort Kochi
+                </h4>
+              </div>
+
+              <a
+                href={directionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase bg-brand-gold text-cinema-black hover:bg-brand-gold-light transition-all shadow-[0_0_15px_rgba(201,168,76,0.3)] hover:shadow-[0_0_20px_rgba(201,168,76,0.5)] transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold flex-shrink-0"
+              >
+                <span>Get Directions</span>
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                </svg>
+              </a>
+            </div>
+
+            {/* Embedded Google Map Iframe */}
+            <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:h-[420px] rounded-xl overflow-hidden border border-[#273244] bg-[#0A0D14]">
+              <iframe
+                title="EVM Cinemas Accurate Google Map Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.697042079227!2d76.25308737503023!3d9.94682367375497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0873400b95738d%3A0x247a16fecf1f31f9!2sEVM%20Cinemas!5e0!3m2!1sen!2sin!4v1718880000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full filter contrast-[1.05]"
+              />
+            </div>
+
+            {/* Map Footer Information Badges */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
+              <div className="p-2.5 rounded-lg bg-[#141A24] border border-[#273244] text-center">
+                <span className="block text-[0.62rem] font-bold text-brand-gold uppercase tracking-wider">
+                  PARKING
+                </span>
+                <span className="text-[0.68rem] text-cinema-gray-300 font-medium">
+                  Ample car &amp; two-wheeler parking
+                </span>
+              </div>
+              <div className="p-2.5 rounded-lg bg-[#141A24] border border-[#273244] text-center">
+                <span className="block text-[0.62rem] font-bold text-brand-cyan uppercase tracking-wider">
+                  LANDMARK
+                </span>
+                <span className="text-[0.68rem] text-cinema-gray-300 font-medium">
+                  Opp. EVM Theater, Chullickal
+                </span>
+              </div>
+              <div className="p-2.5 rounded-lg bg-[#141A24] border border-[#273244] text-center">
+                <span className="block text-[0.62rem] font-bold text-cinema-pure-white uppercase tracking-wider">
+                  TRANSPORT
+                </span>
+                <span className="text-[0.68rem] text-cinema-gray-300 font-medium">
+                  Minutes from Fort Kochi &amp; Mattancherry
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

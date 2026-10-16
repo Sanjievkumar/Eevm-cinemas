@@ -22,6 +22,7 @@ export const navigationItems: NavItem[] = [
   { label: 'Coming Soon', href: '/#coming-soon' },
   { label: 'Our Screens', href: '/#screens' },
   { label: 'About', href: '/#about' },
+  { label: 'Leadership', href: '/#leadership' },
   { label: 'Gallery', href: '/#gallery' },
   { label: 'Contact', href: '/#contact' },
 ];
@@ -37,8 +38,9 @@ export const homepageSections: HomepageSection[] = [
   { id: 'experience', label: 'More Than a Movie', order: 4 },
   { id: 'screens', label: 'Two Screens', order: 5 },
   { id: 'about', label: 'Our Legacy', order: 6 },
-  { id: 'gallery', label: 'Gallery', order: 7 },
-  { id: 'contact', label: 'Contact', order: 8 },
+  { id: 'leadership', label: 'Leadership', order: 7 },
+  { id: 'gallery', label: 'Gallery', order: 8 },
+  { id: 'contact', label: 'Contact', order: 9 },
 ];
 
 // =============================================================================
@@ -55,12 +57,12 @@ export const cinemaInfo: CinemaInfo = {
   pincode: '682005',
   phone: '+91 484 485 7577',
   email: 'Admin@evmcinemas.com',
-  mapUrl: 'https://maps.google.com/?q=Opp.+EVM+Theater,+Chullickal,+Kochi,+Kerala+682005',
+  mapUrl: 'https://www.google.com/maps/place/EVM+Cinemas/@9.9468237,76.2556623,17z/data=!3m1!4b1!4m6!3m5!1s0x3b0873400b95738d:0x247a16fecf1f31f9!8m2!3d9.9468237!4d76.2556623!16s%2Fg%2F11b8zcg34q',
   mapEmbedUrl:
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15719.1039818858!2d76.2520!3d9.9455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b086d493a39e877%3A0x6b44a86b360b9432!2sChullickal%2C%20Kochi%2C%20Kerala%20682005!5e0!3m2!1sen!2sin!4v1',
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.697042079227!2d76.25308737503023!3d9.94682367375497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0873400b95738d%3A0x247a16fecf1f31f9!2sEVM%20Cinemas!5e0!3m2!1sen!2sin!4v1718880000000!5m2!1sen!2sin',
   coordinates: {
-    lat: 9.9455,
-    lng: 76.2570,
+    lat: 9.9468,
+    lng: 76.2557,
   },
   screens: [
     {
@@ -422,24 +424,24 @@ export const screenDetails: ScreenDetail[] = [
 
 export const legacyMilestones: LegacyMilestone[] = [
   {
-    year: '1982',
+    year: '1983',
     title: 'THE BEGINNING',
     subtitle: 'HERITAGE & ORIGINS',
-    description: 'EVM Cinemas opened its doors in 1982, establishing a rich heritage of entertainment and landmark cinema experience.',
+    description: 'The theatre was established in 1983, creating a beloved cultural landmark and gathering place for generations of cinema lovers in Fort Kochi.',
     imageUrl: '/images/legacy/legacy-1982.jpg',
   },
   {
-    year: '2009',
-    title: 'A NEW CHAPTER',
-    subtitle: 'MODERNIZATION & EXPANSION',
-    description: 'In 2009, EVM Cinemas unveiled a new chapter with upgraded projection technology and architectural refinements.',
+    year: '2011',
+    title: 'EVM STEWARDSHIP',
+    subtitle: 'MODERNIZATION & GROWTH',
+    description: 'In 2011, the EVM Group took over the landmark theatre under the leadership of Mr. Jose Mathew, beginning a grand era of modernization, architectural upgrades, and theatrical excellence.',
     imageUrl: '/images/legacy/legacy-2009.jpg',
   },
   {
     year: 'TODAY',
     title: 'AHEAD OF ITS TIME',
     subtitle: 'FLAGSHIP DOLBY CINEMA',
-    description: 'Today, EVM Cinemas stands ahead of its time, delivering dual 4K laser projection and Dolby Atmos spatial surround sound.',
+    description: 'Today, EVM Cinemas stands ahead of its time, delivering dual 4K laser projection and studio-grade Dolby Atmos spatial surround sound.',
     imageUrl: '/images/legacy/legacy-today.jpg',
   },
 ];
@@ -530,6 +532,7 @@ export const contactDetails: {
   addressLine: string | null;
   locationDescription: string;
   mapsUrl: string | null;
+  mapEmbedUrl?: string;
   socials: { label: string; href: string | null }[];
 } = {
   phone: '+91 484 485 7577',
@@ -541,7 +544,9 @@ export const contactDetails: {
   addressLine: 'Opp. EVM Theater, Chullickal, Kochi, Keralam 682005',
   locationDescription:
     'EVM Cinemas is located at Opp. EVM Theater, Chullickal, Kochi, Keralam 682005.',
-  mapsUrl: 'https://maps.google.com/?q=Opp.+EVM+Theater,+Chullickal,+Kochi,+Kerala+682005',
+  mapsUrl: 'https://www.google.com/maps/place/EVM+Cinemas/@9.9468237,76.2556623,17z/data=!3m1!4b1!4m6!3m5!1s0x3b0873400b95738d:0x247a16fecf1f31f9!8m2!3d9.9468237!4d76.2556623!16s%2Fg%2F11b8zcg34q',
+  mapEmbedUrl:
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.697042079227!2d76.25308737503023!3d9.94682367375497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0873400b95738d%3A0x247a16fecf1f31f9!2sEVM%20Cinemas!5e0!3m2!1sen!2sin!4v1718880000000!5m2!1sen!2sin',
   socials: [
     { label: 'Instagram', href: 'https://www.instagram.com/evmcinemasfortkochi/' },
     { label: 'Facebook', href: 'https://www.facebook.com/evmcinemasfortkochi' },
