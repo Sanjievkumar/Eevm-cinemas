@@ -152,15 +152,18 @@ export function Contact() {
           <div className="lg:col-span-7 bg-[#0C1017] border border-[#1E2631] rounded-2xl p-4 sm:p-6 space-y-4 shadow-2xl">
             {/* Map Card Header */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#1E2631]">
-              <div className="space-y-0.5">
+              <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-brand-cyan animate-pulse shadow-[0_0_8px_#00D8F6]" />
-                  <span className="text-[0.68rem] font-bold tracking-[0.2em] uppercase text-brand-gold">
-                    LIVE THEATRE LOCATION
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping" />
+                  <span className="text-[0.68rem] font-bold tracking-[0.2em] uppercase text-red-400 inline-flex items-center gap-1.5">
+                    <svg className="w-3.5 h-3.5 text-red-500 fill-current" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                    <span>EXACT LANDMARK PINNED</span>
                   </span>
                 </div>
                 <h4 className="text-base sm:text-lg font-black text-cinema-pure-white uppercase tracking-wide">
-                  EVM Cinemas, Fort Kochi
+                  EVM Cinemas &bull; Fort Kochi
                 </h4>
               </div>
 
@@ -168,40 +171,20 @@ export function Contact() {
                 href={directionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase bg-brand-gold text-cinema-black hover:bg-brand-gold-light transition-all shadow-[0_0_15px_rgba(201,168,76,0.3)] hover:shadow-[0_0_20px_rgba(201,168,76,0.5)] transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold flex-shrink-0"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase bg-brand-gold text-cinema-black hover:bg-brand-gold-light transition-all shadow-[0_0_20px_rgba(201,168,76,0.35)] hover:shadow-[0_0_25px_rgba(201,168,76,0.55)] transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold flex-shrink-0"
               >
-                <span>Get Directions</span>
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                <svg className="w-4 h-4 text-cinema-black fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                 </svg>
+                <span>Open in Google Maps</span>
               </a>
             </div>
 
             {/* Embedded Google Map Iframe with Prominent Landmark Pin */}
             <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:h-[420px] rounded-xl overflow-hidden border border-[#273244] bg-[#0A0D14] shadow-inner">
-              {/* Floating Landmark Pin Badge */}
-              <div className="absolute top-3 left-3 z-10 pointer-events-none">
-                <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-[#060709]/95 border border-brand-gold/60 shadow-2xl backdrop-blur-md">
-                  <div className="relative flex items-center justify-center">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping absolute" />
-                    <svg className="w-4 h-4 text-red-500 fill-current relative z-10" viewBox="0 0 24 24">
-                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <span className="block text-[0.58rem] font-bold text-brand-gold uppercase tracking-wider leading-none">
-                      LANDMARK PINNED
-                    </span>
-                    <span className="block text-xs font-black text-cinema-pure-white uppercase tracking-wide mt-0.5">
-                      EVM Cinemas &bull; Fort Kochi
-                    </span>
-                  </div>
-                </div>
-              </div>
-
               <iframe
                 title="EVM Cinemas Accurate Google Map Location with Landmark Pin"
-                src="https://maps.google.com/maps?q=EVM+Cinemas,+Opp+EVM+Theater,+Chullickal,+Kochi,+Kerala+682005&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1964.8488!2d76.2556623!3d9.9468289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b08735ea7019349%3A0xc3f9b2cf88c7d81a!2sEVM%20Cinemas!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -210,6 +193,26 @@ export function Contact() {
                 referrerPolicy="no-referrer-when-downgrade"
                 className="w-full h-full"
               />
+
+              {/* Bottom Overlay Pill — Guarantees Landmark Identification */}
+              <div className="absolute bottom-3 left-3 right-3 sm:right-auto z-10 pointer-events-none">
+                <div className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-[#060709]/95 border border-brand-gold/60 shadow-2xl backdrop-blur-md">
+                  <div className="relative flex items-center justify-center">
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping absolute" />
+                    <svg className="w-4 h-4 text-red-500 fill-current relative z-10" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <span className="block text-[0.6rem] font-bold text-brand-gold uppercase tracking-wider leading-none">
+                      📍 PINNED DESTINATION
+                    </span>
+                    <span className="block text-xs font-black text-cinema-pure-white uppercase tracking-wide mt-0.5">
+                      EVM Cinemas &bull; Opp. EVM Theater, Chullickal, Kochi
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Map Footer Information Badges */}
