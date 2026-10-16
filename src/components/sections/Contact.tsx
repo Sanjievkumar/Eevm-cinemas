@@ -177,18 +177,38 @@ export function Contact() {
               </a>
             </div>
 
-            {/* Embedded Google Map Iframe */}
-            <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:h-[420px] rounded-xl overflow-hidden border border-[#273244] bg-[#0A0D14]">
+            {/* Embedded Google Map Iframe with Prominent Landmark Pin */}
+            <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:h-[420px] rounded-xl overflow-hidden border border-[#273244] bg-[#0A0D14] shadow-inner">
+              {/* Floating Landmark Pin Badge */}
+              <div className="absolute top-3 left-3 z-10 pointer-events-none">
+                <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-[#060709]/95 border border-brand-gold/60 shadow-2xl backdrop-blur-md">
+                  <div className="relative flex items-center justify-center">
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping absolute" />
+                    <svg className="w-4 h-4 text-red-500 fill-current relative z-10" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <span className="block text-[0.58rem] font-bold text-brand-gold uppercase tracking-wider leading-none">
+                      LANDMARK PINNED
+                    </span>
+                    <span className="block text-xs font-black text-cinema-pure-white uppercase tracking-wide mt-0.5">
+                      EVM Cinemas &bull; Fort Kochi
+                    </span>
+                  </div>
+                </div>
+              </div>
+
               <iframe
-                title="EVM Cinemas Accurate Google Map Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.697042079227!2d76.25308737503023!3d9.94682367375497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0873400b95738d%3A0x247a16fecf1f31f9!2sEVM%20Cinemas!5e0!3m2!1sen!2sin!4v1718880000000!5m2!1sen!2sin"
+                title="EVM Cinemas Accurate Google Map Location with Landmark Pin"
+                src="https://maps.google.com/maps?q=EVM+Cinemas,+Opp+EVM+Theater,+Chullickal,+Kochi,+Kerala+682005&t=&z=17&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full filter contrast-[1.05]"
+                className="w-full h-full"
               />
             </div>
 

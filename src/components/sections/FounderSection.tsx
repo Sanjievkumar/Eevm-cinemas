@@ -106,7 +106,7 @@ export function FounderSection() {
 
             {/* Quick Caption Under Portrait */}
             <p className="mt-3 text-[0.7rem] text-cinema-gray-400 italic text-center lg:text-left max-w-[400px]">
-              &ldquo;Leadership is about bringing warmth, quality, and indelible memories to every guest.&rdquo;
+              &ldquo;Bringing the same warmth and quality to every guest experience.&rdquo; &mdash; Mr. Jose Mathew
             </p>
           </div>
 
@@ -130,17 +130,31 @@ export function FounderSection() {
               </p>
             </div>
 
-            {/* Core Narrative Paragraphs */}
+            {/* Core Narrative — Faithful to Official EVM Group Overview */}
             <div className="space-y-4 text-xs sm:text-sm text-cinema-gray-300 leading-relaxed font-light">
-              <p>
-                <strong className="text-cinema-pure-white font-semibold">Mr. Jose Mathew</strong>, Managing Director of EVM Cinemas, Fort Kochi, leads a diversified business conglomerate with a formidable reputation in entertainment, theatrical exhibition, and luxury hospitality.
+              <p className="text-sm sm:text-base text-cinema-pure-white leading-relaxed font-normal">
+                <strong className="text-brand-gold font-bold">Mr. Jose Mathew</strong>, Managing Director of EVM Cinemas, Fort Kochi, leads a diversified group with a strong presence in cinema and hospitality.
               </p>
               <p>
-                Under his visionary guidance, the EVM Group also operates distinguished hotels and resorts across Kerala&apos;s most sought-after destinations — including <span className="text-cinema-pure-white font-medium">Munnar, Thekkady, Guruvayur, and more</span>. Across every venture, the group brings the exact same hallmark of heartfelt warmth, comfort, and uncompromising quality to every guest experience.
+                Under his guidance, the group also runs hotels and resorts in <span className="text-cinema-pure-white font-medium">Munnar, Thekkady, Guruvayur and more</span>, bringing the same warmth and quality to every guest experience.
               </p>
-              <p>
-                The cinema&apos;s rich heritage originally commenced in <span className="text-brand-gold font-semibold">1983</span> when the theatre first opened its doors to Fort Kochi. In <span className="text-brand-gold font-semibold">2011</span>, the <span className="text-cinema-pure-white font-semibold">EVM Group took over</span> the landmark address under Mr. Jose Mathew&apos;s leadership, initiating an ambitious chapter of architectural renewal, cutting-edge acoustic engineering, and state-of-the-art dual-screen exhibition featuring flagship Dolby Cinema and Dolby Atmos.
-              </p>
+
+              {/* Highlighted Historical Milestone Box */}
+              <div className="p-4 rounded-xl bg-[#0C1017] border border-brand-gold/40 flex items-center gap-3.5 shadow-lg">
+                <div className="w-9 h-9 rounded-lg bg-brand-gold/15 border border-brand-gold/40 flex items-center justify-center text-brand-gold flex-shrink-0">
+                  <svg className="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div className="space-y-0.5">
+                  <span className="block text-[0.62rem] font-bold text-brand-gold uppercase tracking-widest">
+                    THEATRE HERITAGE &bull; KEY MILESTONES
+                  </span>
+                  <p className="text-xs sm:text-sm font-bold text-cinema-pure-white tracking-wide">
+                    1983 theatre started &middot; 2011 EVM group took over.
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* 4 Feature Highlight Cards */}
