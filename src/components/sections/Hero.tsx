@@ -18,12 +18,12 @@ export function Hero({ src }: HeroProps) {
       className="relative min-h-[100svh] flex flex-col justify-between overflow-hidden bg-[#060709]"
       aria-label="Welcome to EVM Cinemas"
     >
-      {/* 1. Full-bleed Theatre Media Background */}
-      <HeroBackground src={src} />
+      {/* 1. Atmospheric Ambient Backdrop */}
+      <HeroBackground />
 
-      {/* 2. Left-Aligned Content Overlay */}
+      {/* 2. Coordinated Stage: Headline and Theatre Visual shrink together */}
       <div className="flex-1 flex items-center">
-        <HeroContent />
+        <HeroContent src={src} />
       </div>
 
       {/* 3. Bottom Feature Bar */}
