@@ -82,7 +82,17 @@ export function Gallery() {
               }`}
               aria-label={`View ${item.caption || item.alt}`}
             >
-              {/* Image element if valid URL provided */}
+              {/* Abstract Architectural & Cinema Pattern Graphic (Renders seamlessly as fallback background) */}
+              <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-25">
+                <svg className="w-full h-full text-brand-gold/30" viewBox="0 0 400 300" fill="none" preserveAspectRatio="xMidYMid slice">
+                  <path d="M-50 350 L200 -50 L450 350" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
+                  <circle cx="200" cy="150" r="90" stroke="currentColor" strokeWidth="0.75" />
+                  <circle cx="200" cy="150" r="130" stroke="currentColor" strokeWidth="0.5" strokeDasharray="6 6" />
+                  <path d="M0 75 L400 225 M0 225 L400 75" stroke="currentColor" strokeWidth="0.5" />
+                </svg>
+              </div>
+
+              {/* Image element */}
               <img
                 src={item.imageUrl}
                 alt={item.alt}
@@ -93,18 +103,8 @@ export function Gallery() {
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
 
-              {/* Abstract Architectural & Cinema Pattern Graphic (Renders seamlessly as design placeholder background) */}
-              <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-25 group-hover:opacity-40 transition-opacity duration-300">
-                <svg className="w-full h-full text-brand-gold/30" viewBox="0 0 400 300" fill="none" preserveAspectRatio="xMidYMid slice">
-                  <path d="M-50 350 L200 -50 L450 350" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
-                  <circle cx="200" cy="150" r="90" stroke="currentColor" strokeWidth="0.75" />
-                  <circle cx="200" cy="150" r="130" stroke="currentColor" strokeWidth="0.5" strokeDasharray="6 6" />
-                  <path d="M0 75 L400 225 M0 225 L400 75" stroke="currentColor" strokeWidth="0.5" />
-                </svg>
-              </div>
-
               {/* Gradient Overlay & Content Container */}
-              <div className="absolute inset-0 flex flex-col justify-between p-5 text-left bg-gradient-to-t from-[#06080D]/95 via-[#06080D]/50 to-transparent">
+              <div className="absolute inset-0 flex flex-col justify-between p-5 text-left bg-gradient-to-t from-[#06080D]/90 via-black/25 to-black/30 z-10">
                 <div className="flex justify-between items-center z-10">
                   <span className="text-[0.55rem] font-bold tracking-[0.25em] uppercase text-brand-cyan/80 bg-black/40 px-2 py-0.5 rounded border border-brand-cyan/20">
                     EVM ARCHITECTURE
