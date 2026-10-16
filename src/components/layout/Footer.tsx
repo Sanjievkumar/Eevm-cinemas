@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { cinemaInfo, contactDetails, navigationItems } from '@/lib/data/mock-data';
 
+import { DolbyCinemaLogo, DolbyAtmosLogo } from '@/components/ui/DolbyLogos';
+
 export function Footer() {
   const year = new Date().getFullYear();
 
@@ -94,10 +96,17 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-[#1E2631] py-6">
+        <div className="border-t border-[#1E2631] py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-cinema-gray-500">
             &copy; {year} {cinemaInfo.name}. All rights reserved.
           </p>
+          <div className="flex items-center gap-3 sm:gap-4 opacity-75 hover:opacity-100 transition-opacity">
+            <span className="text-[0.6rem] font-bold tracking-widest text-cinema-gray-500 uppercase">
+              Technology Partner
+            </span>
+            <DolbyCinemaLogo className="h-3 w-auto" alt="Dolby Cinema" />
+            <DolbyAtmosLogo className="h-2.5 w-auto" alt="Dolby Atmos" />
+          </div>
         </div>
       </div>
     </footer>

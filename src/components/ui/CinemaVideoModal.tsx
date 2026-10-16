@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { DolbyIcon } from './DolbyIcon';
+import { DolbyIcon, DolbyCinemaLogo } from './DolbyIcon';
 
 interface CinemaVideoModalProps {
   isOpen: boolean;
@@ -75,11 +75,8 @@ export function CinemaVideoModal({
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="hidden sm:flex items-center gap-1.5 text-cinema-gray-400 text-xs">
-              <DolbyIcon className="w-3.5 h-3.5 text-white" />
-              <span className="text-[0.65rem] font-bold tracking-widest text-brand-gold uppercase">
-                DOLBY CINEMA
-              </span>
+            <div className="hidden sm:flex items-center">
+              <DolbyCinemaLogo className="h-4 w-auto" alt="Dolby Cinema" />
             </div>
 
             <button

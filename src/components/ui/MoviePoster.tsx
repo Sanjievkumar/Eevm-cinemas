@@ -1,6 +1,7 @@
 'use client';
 
 import { DolbyIcon } from '@/components/ui/DolbyIcon';
+import { DolbyFormatBadge } from '@/components/ui/DolbyLogos';
 
 interface MoviePosterProps {
   src?: string;
@@ -52,17 +53,21 @@ export function MoviePoster({
       <div className="relative z-10 flex items-center justify-between w-full">
         {/* Format Badges (e.g. Dolby Vision, 4K, Dolby Atmos) */}
         <div className="flex flex-wrap gap-1 max-w-[70%] text-left">
-          {formats.slice(0, 2).map((fmt) => (
-            <span
-              key={fmt}
-              className="px-1.5 py-0.5 rounded bg-black/85 border border-brand-cyan/60 text-[0.55rem] font-bold text-brand-cyan uppercase tracking-wider backdrop-blur-sm shadow inline-flex items-center gap-1"
-            >
-              {fmt.toUpperCase().includes('DOLBY') && (
-                <DolbyIcon className="h-2 w-auto text-white flex-shrink-0" />
-              )}
-              <span>{fmt}</span>
-            </span>
-          ))}
+          {formats.slice(0, 2).map((fmt) => {
+            const isDolby = fmt.toUpperCase().includes('DOLBY');
+            return (
+              <span
+                key={fmt}
+                className="px-1.5 py-0.5 rounded bg-black/85 border border-brand-cyan/60 text-[0.55rem] font-bold text-brand-cyan uppercase tracking-wider backdrop-blur-sm shadow inline-flex items-center min-h-[16px]"
+              >
+                {isDolby ? (
+                  <DolbyFormatBadge format={fmt} className="h-2 sm:h-2.5 w-auto" />
+                ) : (
+                  <span>{fmt}</span>
+                )}
+              </span>
+            );
+          })}
         </div>
 
         {/* Certificate Badge */}

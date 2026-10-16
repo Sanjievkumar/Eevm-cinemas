@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import type { ScreenDetail } from '@/types';
 import { getScreenDetails } from '@/lib/api/cinema-service';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { DolbyIcon } from '@/components/ui/DolbyIcon';
+import { DolbyCinemaLogo, DolbyVisionLogo, DolbyAtmosLogo } from '@/components/ui/DolbyLogos';
 
 export function TwoScreens() {
   const [screens, setScreens] = useState<ScreenDetail[]>([]);
@@ -75,11 +75,17 @@ export function TwoScreens() {
               {/* Lower Section: Title, Description & Specifications */}
               <div className="p-6 sm:p-7 space-y-5">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-black text-cinema-pure-white tracking-wide uppercase group-hover:text-brand-gold transition-colors inline-flex items-center gap-2.5">
-                    {screen.title.toUpperCase().includes('DOLBY') && (
-                      <DolbyIcon className="h-4.5 sm:h-5 w-auto text-white flex-shrink-0" />
+                  <h3 className="text-xl sm:text-2xl font-black text-cinema-pure-white tracking-wide uppercase group-hover:text-brand-gold transition-colors inline-flex items-center gap-3">
+                    {screen.title.toUpperCase() === 'DOLBY CINEMA' ? (
+                      <DolbyCinemaLogo className="h-6 sm:h-7 w-auto" alt="Dolby Cinema" />
+                    ) : screen.title.toUpperCase().includes('DOLBY ATMOS') ? (
+                      <div className="inline-flex items-center gap-2.5">
+                        <span>{screen.title.replace(/DOLBY ATMOS/i, '').trim()}</span>
+                        <DolbyAtmosLogo className="h-5 sm:h-6 w-auto" alt="Dolby Atmos" />
+                      </div>
+                    ) : (
+                      <span>{screen.title}</span>
                     )}
-                    <span>{screen.title}</span>
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm text-cinema-gray-300 leading-relaxed font-light">
                     {screen.description}
@@ -88,19 +94,32 @@ export function TwoScreens() {
 
                 {/* Specifications Grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-4 border-t border-[#1E2631]">
-                  {screen.specs.map((spec) => (
-                    <div key={spec.label} className="p-2.5 rounded-lg bg-[#141A24] border border-[#273244]">
-                      <span className="block text-[0.58rem] font-semibold text-cinema-gray-400 uppercase tracking-widest">
-                        {spec.label}
-                      </span>
-                      <span className="block text-xs font-black text-brand-cyan uppercase tracking-wider mt-1 inline-flex items-center gap-1.5">
-                        {spec.value.toUpperCase().includes('DOLBY') && (
-                          <DolbyIcon className="h-2.5 w-auto text-white flex-shrink-0" />
-                        )}
-                        <span>{spec.value}</span>
-                      </span>
-                    </div>
-                  ))}
+                  {screen.specs.map((spec) => {
+                    const valUpper = spec.value.toUpperCase();
+                    return (
+                      <div key={spec.label} className="p-2.5 rounded-lg bg-[#141A24] border border-[#273244] flex flex-col justify-between">
+                        <span className="block text-[0.58rem] font-semibold text-cinema-gray-400 uppercase tracking-widest">
+                          {spec.label}
+                        </span>
+                        <div className="mt-1 flex items-center min-h-[20px]">
+                          {valUpper.includes('DOLBY VISION') ? (
+                            <DolbyVisionLogo className="h-3 sm:h-3.5 w-auto" alt="Dolby Vision" />
+                          ) : valUpper.includes('DOLBY ATMOS') ? (
+                            <div className="inline-flex items-center gap-1.5 flex-wrap">
+                              {valUpper.includes('STUDIO GRADE') && (
+                                <span className="text-[0.6rem] font-bold text-cinema-gray-300">STUDIO GRADE</span>
+                              )}
+                              <DolbyAtmosLogo className="h-3 sm:h-3.5 w-auto" alt="Dolby Atmos" />
+                            </div>
+                          ) : (
+                            <span className="text-xs font-black text-brand-cyan uppercase tracking-wider">
+                              {spec.value}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>

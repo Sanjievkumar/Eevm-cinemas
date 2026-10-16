@@ -406,7 +406,7 @@ export const screenDetails: ScreenDetail[] = [
     audio: 'Dolby Atmos',
     seating: 'Premium Stadium Seating',
     description: 'A refined viewing environment featuring ultra-sharp 4K laser projection and enveloping Dolby Atmos surround sound.',
-    imageUrl: '/images/screens/screen-02-4k.jpg',
+    imageUrl: '/images/screens/evm-screen-2.jpg',
     specs: [
       { label: 'PROJECTION', value: '4K LASER' },
       { label: 'AUDIO', value: 'DOLBY ATMOS' },

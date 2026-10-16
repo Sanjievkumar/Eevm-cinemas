@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { nowShowingMovies, cinemaInfo } from '@/lib/data/mock-data';
-import { DolbyIcon } from '@/components/ui/DolbyIcon';
+import { DolbyCinemaLogo, DolbyVisionLogo, DolbyAtmosLogo } from '@/components/ui/DolbyLogos';
 
 function BookingComingSoonContent() {
   const router = useRouter();
@@ -151,15 +151,14 @@ function BookingComingSoonContent() {
             </div>
 
             <div className="p-3 rounded-lg bg-[#080B10]/90 border border-[#1E2631]">
-              <div className="flex items-center gap-1.5">
-                <DolbyIcon className="w-3 h-3 text-white" />
-                <span className="text-[0.6rem] font-bold tracking-widest uppercase text-cinema-pure-white">
-                  FLAGSHIP SCREENS
-                </span>
+              <div className="flex items-center gap-1.5 min-h-[18px]">
+                <DolbyCinemaLogo className="h-3.5 w-auto" alt="Dolby Cinema" />
               </div>
-              <p className="text-[0.75rem] text-cinema-gray-300 mt-0.5 leading-snug">
-                Dolby Vision &amp; Dolby Atmos sound.
-              </p>
+              <div className="text-[0.75rem] text-cinema-gray-300 mt-1.5 flex items-center gap-2 flex-wrap">
+                <DolbyVisionLogo className="h-2.5 w-auto" alt="Dolby Vision" />
+                <span className="text-brand-gold font-bold">&amp;</span>
+                <DolbyAtmosLogo className="h-2.5 w-auto" alt="Dolby Atmos" />
+              </div>
             </div>
           </div>
         </div>

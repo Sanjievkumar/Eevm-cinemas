@@ -5,6 +5,7 @@ import type { ExperienceFeature } from '@/types';
 import { getExperienceFeatures } from '@/lib/api/cinema-service';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { DolbyIcon } from '@/components/ui/DolbyIcon';
+import { DolbyVisionLogo, DolbyAtmosLogo, DolbyCinemaLogo } from '@/components/ui/DolbyLogos';
 import { CinemaVideoModal } from '@/components/ui/CinemaVideoModal';
 
 export function MoreThanAMovie() {
@@ -67,10 +68,10 @@ export function MoreThanAMovie() {
                     {item.badge}
                   </span>
                   <div className="w-9 h-9 rounded-lg bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan group-hover:scale-110 transition-transform">
-                    {(item.iconName === 'vision' || item.iconName === 'dolby') && (
+                    {(item.iconName === 'vision' || item.iconName === 'dolby' || item.iconName === 'atmos') && (
                       <DolbyIcon className="w-4.5 h-4.5 text-white" />
                     )}
-                    {(item.iconName === 'atmos' || item.iconName === 'sound') && (
+                    {item.iconName === 'sound' && (
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.287a5 5 0 010 7.427M12 6v12l-4-4H4V10h4l4-4z" />
                       </svg>
@@ -88,12 +89,19 @@ export function MoreThanAMovie() {
                   </div>
                 </div>
 
-                <h3 className="text-base sm:text-lg font-black tracking-wide text-cinema-pure-white group-hover:text-brand-cyan transition-colors uppercase inline-flex items-center gap-2">
-                  {item.title.toUpperCase().includes('DOLBY') && (
-                    <DolbyIcon className="h-3.5 sm:h-4 w-auto text-white flex-shrink-0" />
+                <div className="flex items-center min-h-[28px]">
+                  {item.title.toUpperCase() === 'DOLBY VISION' ? (
+                    <DolbyVisionLogo className="h-5 sm:h-5.5 w-auto" alt="Dolby Vision" />
+                  ) : item.title.toUpperCase() === 'DOLBY ATMOS' ? (
+                    <DolbyAtmosLogo className="h-5 sm:h-5.5 w-auto" alt="Dolby Atmos" />
+                  ) : item.title.toUpperCase() === 'DOLBY CINEMA' ? (
+                    <DolbyCinemaLogo className="h-5 sm:h-5.5 w-auto" alt="Dolby Cinema" />
+                  ) : (
+                    <h3 className="text-base sm:text-lg font-black tracking-wide text-cinema-pure-white group-hover:text-brand-cyan transition-colors uppercase">
+                      {item.title}
+                    </h3>
                   )}
-                  <span>{item.title}</span>
-                </h3>
+                </div>
 
                 <p className="text-xs text-cinema-gray-300 leading-relaxed font-light">
                   {item.description}

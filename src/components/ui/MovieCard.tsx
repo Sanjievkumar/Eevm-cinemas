@@ -5,6 +5,7 @@ import Link from 'next/link';
 import type { Movie, Showtime } from '@/types';
 import { getBookingUrl } from '@/lib/api/cinema-service';
 import { MoviePoster } from './MoviePoster';
+import { DolbyFormatBadge } from './DolbyLogos';
 
 interface MovieCardProps {
   movie: Movie;
@@ -62,9 +63,20 @@ export function MovieCard({ movie, showtimes }: MovieCardProps) {
 
         {/* 3. Divider & Available Showtimes Section */}
         <div className="pt-2.5 border-t border-[#1E2631]/80">
-          <span className="block text-[0.58rem] font-semibold text-cinema-gray-400 uppercase tracking-widest mb-1.5">
-            AVAILABLE SHOWTIMES
-          </span>
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="block text-[0.58rem] font-semibold text-cinema-gray-400 uppercase tracking-widest">
+              AVAILABLE SHOWTIMES
+            </span>
+            {selectedShowtime?.format && (
+              <span className="inline-flex items-center gap-1 text-[0.58rem] font-bold text-brand-cyan">
+                {selectedShowtime.format.toUpperCase().includes('DOLBY') ? (
+                  <DolbyFormatBadge format={selectedShowtime.format} className="h-2.5 w-auto" />
+                ) : (
+                  <span>{selectedShowtime.format}</span>
+                )}
+              </span>
+            )}
+          </div>
           <div className="flex flex-wrap gap-1">
             {showtimes.length > 0 ? (
               showtimes.map((st) => {

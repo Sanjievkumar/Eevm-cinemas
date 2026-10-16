@@ -23,3 +23,5 @@ export function DolbyIcon({ className = 'w-4 h-4', fill = '#FFFFFF', ...props }:
     </svg>
   );
 }
+
+export { DolbyAtmosLogo, DolbyVisionLogo, DolbyCinemaLogo, DolbyFormatBadge } from './DolbyLogos';
