@@ -5,14 +5,16 @@ import type { GalleryItem } from '@/types';
 import { getGalleryItems } from '@/lib/api/cinema-service';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 
-// Asymmetric masonry grid span classes matching reference layout
+// Asymmetric masonry grid span classes matching premium cinema gallery layout
 const MASONRY_SPANS = [
-  'col-span-1 md:col-span-2 row-span-2', // Large feature card left
-  'col-span-1 md:col-span-1 row-span-1', // Top middle card
-  'col-span-1 md:col-span-1 row-span-2', // Tall right card
-  'col-span-1 md:col-span-1 row-span-1', // Bottom middle card
-  'col-span-1 md:col-span-2 row-span-1', // Wide lower card
-  'col-span-1 md:col-span-2 row-span-1', // Wide bottom card
+  'col-span-1 md:col-span-2 row-span-2', // 0: Large feature card (Exterior night)
+  'col-span-1 md:col-span-1 row-span-1', // 1: Grand entrance steps
+  'col-span-1 md:col-span-1 row-span-2', // 2: Tall Dolby corridor
+  'col-span-1 md:col-span-1 row-span-1', // 3: Box office counter
+  'col-span-1 md:col-span-2 row-span-2', // 4: Curved screen auditorium
+  'col-span-1 md:col-span-2 row-span-1', // 5: Wide luxury stadium seating
+  'col-span-1 md:col-span-1 row-span-1', // 6: Gourmet concessions lobby
+  'col-span-1 md:col-span-1 row-span-1', // 7: Auditorium seating & acoustics
 ];
 
 export function Gallery() {
