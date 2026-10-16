@@ -389,7 +389,7 @@ export const screenDetails: ScreenDetail[] = [
     audio: 'Studio Grade Dolby Atmos',
     seating: 'Luxury Ergonomic Plush Seating',
     description: 'Our flagship auditorium bringing together dolby vision projection and studio grade dolby atmos sound for an unforgettable viewing experience.',
-    imageUrl: '/images/screens/screen-01-dolby.jpg',
+    imageUrl: '/images/gallery/evm-curved-screen.png',
     specs: [
       { label: 'PROJECTION', value: 'DOLBY VISION' },
       { label: 'AUDIO', value: 'STUDIO GRADE DOLBY ATMOS' },
