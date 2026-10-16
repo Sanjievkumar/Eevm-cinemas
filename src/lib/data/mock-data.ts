@@ -61,8 +61,8 @@ export const cinemaInfo: CinemaInfo = {
   mapEmbedUrl:
     'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.697042079227!2d76.25308737503023!3d9.94682367375497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0873400b95738d%3A0x247a16fecf1f31f9!2sEVM%20Cinemas!5e0!3m2!1sen!2sin!4v1718880000000!5m2!1sen!2sin',
   coordinates: {
-    lat: 9.9468,
-    lng: 76.2557,
+    lat: 9.9525,
+    lng: 76.2472,
   },
   screens: [
     {
@@ -544,9 +544,9 @@ export const contactDetails: {
   addressLine: 'Opp. EVM Theater, Chullickal, Kochi, Keralam 682005',
   locationDescription:
     'EVM Cinemas is located at Opp. EVM Theater, Chullickal, Kochi, Keralam 682005.',
-  mapsUrl: 'https://www.google.com/maps/place/EVM+Cinemas/@9.9468237,76.2556623,17z/data=!3m1!4b1!4m6!3m5!1s0x3b0873400b95738d:0x247a16fecf1f31f9!8m2!3d9.9468237!4d76.2556623!16s%2Fg%2F11b8zcg34q',
+  mapsUrl: 'https://www.google.com/maps/place/EVM+Cinemas/@9.9525,76.2472,17z',
   mapEmbedUrl:
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.697042079227!2d76.25308737503023!3d9.94682367375497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0873400b95738d%3A0x247a16fecf1f31f9!2sEVM%20Cinemas!5e0!3m2!1sen!2sin!4v1718880000000!5m2!1sen!2sin',
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1500!2d76.2472!3d9.9525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b08735ea7019349%3A0xc3f9b2cf88c7d81a!2sEVM%20Cinemas!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin',
   socials: [
     { label: 'Instagram', href: 'https://www.instagram.com/evmcinemasfortkochi/' },
     { label: 'Facebook', href: 'https://www.facebook.com/evmcinemasfortkochi' },

@@ -184,7 +184,7 @@ export function Contact() {
             <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:h-[420px] rounded-xl overflow-hidden border border-[#273244] bg-[#0A0D14] shadow-inner">
               <iframe
                 title="EVM Cinemas Accurate Google Map Location with Landmark Pin"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1964.8488!2d76.2556623!3d9.9468289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b08735ea7019349%3A0xc3f9b2cf88c7d81a!2sEVM%20Cinemas!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1500!2d76.2472!3d9.9525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b08735ea7019349%3A0xc3f9b2cf88c7d81a!2sEVM%20Cinemas!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -193,6 +193,36 @@ export function Contact() {
                 referrerPolicy="no-referrer-when-downgrade"
                 className="w-full h-full"
               />
+
+              {/* Central Guaranteed Landmark Pin Marker Overlay */}
+              <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-10 -translate-y-5">
+                <div className="flex flex-col items-center">
+                  {/* Pin Label Callout Bubble */}
+                  <div className="px-3.5 py-1.5 rounded-full bg-[#060709] border-2 border-brand-gold text-white shadow-[0_0_25px_rgba(201,168,76,0.6)] flex items-center gap-2 mb-1">
+                    <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
+                    <span className="text-[0.72rem] font-black uppercase tracking-wider text-cinema-pure-white">
+                      EVM CINEMAS
+                    </span>
+                    <span className="text-[0.6rem] font-bold text-brand-gold uppercase tracking-widest bg-brand-gold/20 px-1.5 py-0.5 rounded">
+                      FORT KOCHI
+                    </span>
+                  </div>
+
+                  {/* Red Cinema Landmark Drop Pin Icon */}
+                  <div className="relative flex items-center justify-center">
+                    <svg
+                      className="w-10 h-10 text-red-500 drop-shadow-[0_4px_10px_rgba(0,0,0,0.85)] filter"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                      <circle cx="12" cy="9" r="2.5" fill="#FFFFFF" />
+                    </svg>
+                    {/* Pulsing Target Radar Wave */}
+                    <span className="absolute -bottom-1 w-4 h-2 rounded-full bg-red-500/70 blur-[1px] animate-ping" />
+                  </div>
+                </div>
+              </div>
 
               {/* Bottom Overlay Pill — Guarantees Landmark Identification */}
               <div className="absolute bottom-3 left-3 right-3 sm:right-auto z-10 pointer-events-none">
