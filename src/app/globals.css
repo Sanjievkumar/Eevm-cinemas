@@ -58,6 +58,11 @@
   color-scheme: dark;
 }
 
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-surface-primary);
   color: var(--color-text-primary);

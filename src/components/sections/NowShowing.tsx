@@ -102,7 +102,7 @@ export function NowShowing() {
             <span>BOOK YOUR EXPERIENCE</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-cinema-pure-white uppercase leading-none">
+          <h2 className="text-2xl sm:text-4xl md:text-6xl font-black tracking-tight text-cinema-pure-white uppercase leading-tight">
             YOUR <span className="text-brand-cyan">MOVIE.</span>{' '}
             YOUR <span className="text-brand-gold">SCREEN.</span>{' '}
             YOUR <span className="text-cinema-white">MOMENT.</span>
@@ -123,17 +123,17 @@ export function NowShowing() {
         />
 
         {/* 3. Section Tabs Header: NOW SHOWING | COMING SOON */}
-        <div className="flex flex-wrap items-center justify-between gap-6 border-b border-[#1E2631] pb-4">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#1E2631] pb-4">
           <div className="flex items-center gap-6 sm:gap-10">
             <button
               type="button"
-              className="text-base sm:text-lg font-bold tracking-wider uppercase text-cinema-pure-white border-b-2 border-brand-cyan pb-4 -mb-4"
+              className="text-sm sm:text-lg font-bold tracking-wider uppercase text-cinema-pure-white border-b-2 border-brand-cyan pb-4 -mb-4"
             >
               NOW SHOWING
             </button>
             <a
               href="#coming-soon"
-              className="text-base sm:text-lg font-bold tracking-wider uppercase text-cinema-gray-500 hover:text-cinema-gray-300 transition-colors pb-4 -mb-4"
+              className="text-sm sm:text-lg font-bold tracking-wider uppercase text-cinema-gray-500 hover:text-cinema-gray-300 transition-colors pb-4 -mb-4"
             >
               COMING SOON
             </a>
@@ -154,7 +154,7 @@ export function NowShowing() {
         {/* 4. Date Selection Tabs & Language Filter */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           {/* Date Selector Tabs (Scrollable on mobile) */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-thin">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-none no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
             {dates.map((d) => {
               const isSelected = selectedDate === d.date;
               return (
@@ -176,7 +176,7 @@ export function NowShowing() {
           </div>
 
           {/* Language Filter Pills */}
-          <div className="flex items-center gap-1.5 overflow-x-auto">
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
             {['ALL', 'TAMIL', 'ENGLISH', 'HINDI'].map((lang) => {
               const isSelected = selectedLanguage === lang;
               return (

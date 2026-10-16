@@ -7,14 +7,14 @@ import { SectionHeader } from '@/components/ui/SectionHeader';
 
 // Asymmetric masonry grid span classes matching premium cinema gallery layout
 const MASONRY_SPANS = [
-  'col-span-1 md:col-span-2 row-span-2', // 0: Large feature card (Exterior night)
-  'col-span-1 md:col-span-1 row-span-1', // 1: Grand entrance steps
-  'col-span-1 md:col-span-1 row-span-2', // 2: Tall Dolby corridor
-  'col-span-1 md:col-span-1 row-span-1', // 3: Box office counter
-  'col-span-1 md:col-span-2 row-span-2', // 4: Curved screen auditorium
-  'col-span-1 md:col-span-2 row-span-1', // 5: Wide luxury stadium seating
-  'col-span-1 md:col-span-1 row-span-1', // 6: Gourmet concessions lobby
-  'col-span-1 md:col-span-1 row-span-1', // 7: Auditorium seating & acoustics
+  'col-span-1 sm:col-span-2 sm:row-span-2 min-h-[220px] sm:min-h-0', // 0: Large feature card (Exterior night)
+  'col-span-1 sm:col-span-1 sm:row-span-1 min-h-[220px] sm:min-h-0', // 1: Grand entrance steps
+  'col-span-1 sm:col-span-1 sm:row-span-2 min-h-[220px] sm:min-h-0', // 2: Tall Dolby corridor
+  'col-span-1 sm:col-span-1 sm:row-span-1 min-h-[220px] sm:min-h-0', // 3: Box office counter
+  'col-span-1 sm:col-span-2 sm:row-span-2 min-h-[220px] sm:min-h-0', // 4: Curved screen auditorium
+  'col-span-1 sm:col-span-2 sm:row-span-1 min-h-[220px] sm:min-h-0', // 5: Wide luxury stadium seating
+  'col-span-1 sm:col-span-1 sm:row-span-1 min-h-[220px] sm:min-h-0', // 6: Gourmet concessions lobby
+  'col-span-1 sm:col-span-1 sm:row-span-1 min-h-[220px] sm:min-h-0', // 7: Auditorium seating & acoustics
 ];
 
 export function Gallery() {
@@ -145,7 +145,7 @@ export function Gallery() {
             type="button"
             onClick={closeModal}
             aria-label="Close modal"
-            className="absolute top-6 right-6 w-11 h-11 rounded-full bg-white/10 text-cinema-pure-white text-xl flex items-center justify-center hover:bg-white/20 transition-colors z-50 border border-white/20"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 text-cinema-pure-white text-xl flex items-center justify-center hover:bg-white/20 transition-colors z-50 border border-white/20"
           >
             &times;
           </button>
@@ -158,13 +158,13 @@ export function Gallery() {
               stepImage(-1);
             }}
             aria-label="Previous image"
-            className="absolute left-4 sm:left-8 w-11 h-11 rounded-full bg-white/10 text-cinema-pure-white text-lg flex items-center justify-center hover:bg-white/20 transition-colors z-50 border border-white/20"
+            className="absolute left-2 sm:left-8 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/10 text-cinema-pure-white text-lg flex items-center justify-center hover:bg-white/20 transition-colors z-50 border border-white/20"
           >
             &larr;
           </button>
 
           <figure
-            className="max-w-4xl w-full flex flex-col items-center justify-center space-y-4"
+            className="max-w-4xl w-full flex flex-col items-center justify-center space-y-4 px-2 sm:px-0"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden border border-[#1E2631] bg-[#0A0D14] flex items-center justify-center shadow-2xl">
@@ -203,7 +203,7 @@ export function Gallery() {
               stepImage(1);
             }}
             aria-label="Next image"
-            className="absolute right-4 sm:right-8 w-11 h-11 rounded-full bg-white/10 text-cinema-pure-white text-lg flex items-center justify-center hover:bg-white/20 transition-colors z-50 border border-white/20"
+            className="absolute right-2 sm:right-8 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/10 text-cinema-pure-white text-lg flex items-center justify-center hover:bg-white/20 transition-colors z-50 border border-white/20"
           >
             &rarr;
           </button>

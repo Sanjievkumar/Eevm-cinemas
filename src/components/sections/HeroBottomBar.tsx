@@ -41,16 +41,16 @@ export function HeroBottomBar() {
   ];
 
   return (
-    <div className="relative z-20 w-full bg-[#060709]/85 backdrop-blur-md border-t border-[#1E2631]/60 py-4 px-4 sm:px-6 lg:px-10">
-      <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        {/* Feature Specifications */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6 w-full md:w-auto">
+    <div className="relative z-20 w-full bg-[#060709]/90 backdrop-blur-md border-t border-[#1E2631]/60 py-3 sm:py-4 px-4 sm:px-6 lg:px-10">
+      <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
+        {/* Feature Specifications: Horizontal swipeable on mobile, grid on desktop */}
+        <div className="flex items-center gap-3 overflow-x-auto no-scrollbar w-full md:w-auto md:grid md:grid-cols-5 md:gap-6 py-1 scrollbar-none">
           {features.map((item) => (
-            <div key={item.label} className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+            <div key={item.label} className="flex items-center gap-2.5 flex-shrink-0 md:flex-shrink">
+              <div className="p-1.5 sm:p-2 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
                 {item.icon}
               </div>
-              <span className="text-[0.68rem] sm:text-xs font-semibold tracking-wider text-cinema-gray-300 uppercase leading-tight">
+              <span className="text-[0.65rem] sm:text-xs font-semibold tracking-wider text-cinema-gray-300 uppercase leading-tight whitespace-nowrap md:whitespace-normal">
                 {item.label}
               </span>
             </div>
@@ -58,7 +58,7 @@ export function HeroBottomBar() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="hidden md:flex items-center gap-3 text-cinema-gray-400 text-[0.65rem] font-semibold tracking-[0.2em] uppercase">
+        <div className="hidden md:flex items-center gap-3 text-cinema-gray-400 text-[0.65rem] font-semibold tracking-[0.2em] uppercase flex-shrink-0">
           <span>SCROLL TO EXPLORE</span>
           <div className="w-4 h-7 rounded-full border border-cinema-gray-600 flex items-start justify-center p-1">
             <div className="w-1 h-2 rounded-full bg-brand-gold animate-bounce" />

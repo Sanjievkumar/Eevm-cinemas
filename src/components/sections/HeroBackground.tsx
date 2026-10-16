@@ -18,40 +18,33 @@ export function HeroBackground({
       {/* 1. Deep Pitch Obsidian Base Background */}
       <div className="absolute inset-0 bg-[#060709]" />
 
-      {/* 2. Right-Anchored Theatre Exterior Photo */}
-      <div className="absolute right-0 top-0 w-full lg:w-[64%] xl:w-[58%] h-full overflow-hidden flex items-center justify-end">
-        <div className="relative w-full h-full flex items-center justify-center lg:justify-end">
-          <img
-            src={src}
-            alt="EVM Cinemas Building at Night"
-            className="w-full h-full object-cover object-[center_35%] lg:object-[center_center] transition-transform duration-700"
-          />
-
-          {/* Left-to-Right Dissolve: Seamlessly merges the left edge of the photo into the pitch black backdrop */}
-          <div className="absolute inset-y-0 left-0 w-28 sm:w-48 lg:w-72 bg-gradient-to-r from-[#060709] via-[#060709]/80 to-transparent" />
-
-          {/* Top Dissolve for Navbar */}
-          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#060709] via-[#060709]/60 to-transparent" />
-
-          {/* Bottom Dissolve for HeroBottomBar */}
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#060709] via-[#060709]/60 to-transparent" />
-
-          {/* Right Edge Soft Vignette */}
-          <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#060709]/40 to-transparent" />
-        </div>
-      </div>
-
-      {/* 3. Subtle Ambient Cyan Glow (Harmonizes with EVM's blue neon canopy lighting) */}
-      <div
-        className="absolute top-1/4 right-[15%] w-[500px] h-[350px] pointer-events-none opacity-30"
-        style={{
-          background:
-            'radial-gradient(ellipse at center, rgba(0, 216, 246, 0.2) 0%, rgba(201, 168, 76, 0.08) 45%, transparent 70%)',
-        }}
+      {/* 2. Full-bleed Theatre Exterior Photo (spans 100% of hero background so zooming out scales seamlessly) */}
+      <img
+        src={src}
+        alt="EVM Cinemas Building at Night"
+        className="absolute inset-0 w-full h-full object-cover object-[center_30%] sm:object-[center_center] lg:object-[68%_center] transition-transform duration-700"
       />
 
-      {/* 4. Left Hero Content Protection Gradient (Ensures white and gold typography has 100% crisp contrast) */}
-      <div className="absolute inset-y-0 left-0 w-full lg:w-[52%] bg-gradient-to-r from-[#060709] via-[#060709]/90 to-transparent pointer-events-none" />
+      {/* 3. Left-to-Right Dissolve: Ensures left-aligned typography has 100% crisp contrast while allowing building & neon to illuminate the right */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#060709] via-[#060709]/90 sm:via-[#060709]/80 to-[#060709]/40 lg:to-transparent" />
+
+      {/* 4. Mobile Vertical Protection: Deepens contrast on small viewports */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#060709] via-transparent to-[#060709]/80 lg:hidden" />
+
+      {/* 5. Top Dissolve for Navbar */}
+      <div className="absolute inset-x-0 top-0 h-32 sm:h-40 bg-gradient-to-b from-[#060709] via-[#060709]/80 to-transparent" />
+
+      {/* 6. Bottom Dissolve for HeroBottomBar */}
+      <div className="absolute inset-x-0 bottom-0 h-32 sm:h-44 bg-gradient-to-t from-[#060709] via-[#060709]/90 to-transparent" />
+
+      {/* 7. Subtle Ambient Cyan Glow (Harmonizes with EVM's blue neon canopy lighting) */}
+      <div
+        className="absolute top-1/3 right-[10%] sm:right-[15%] w-[400px] sm:w-[600px] h-[300px] sm:h-[400px] pointer-events-none opacity-25"
+        style={{
+          background:
+            'radial-gradient(ellipse at center, rgba(0, 216, 246, 0.25) 0%, rgba(201, 168, 76, 0.08) 50%, transparent 75%)',
+        }}
+      />
     </div>
   );
 }

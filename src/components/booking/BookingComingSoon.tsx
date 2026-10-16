@@ -56,9 +56,9 @@ function BookingComingSoonContent() {
       {/* 2. Main Stage Content Container */}
       <div className="relative z-10 max-w-3xl w-full mx-auto text-center space-y-8">
         {/* Stylized Curved Cinema Screen Frame */}
-        <div className="relative p-8 sm:p-12 md:p-16 rounded-3xl bg-gradient-to-b from-[#0E1420]/90 via-[#0A0D15]/85 to-[#06080D]/95 border border-[#1E2631] shadow-[0_0_60px_rgba(0,0,0,0.8)] backdrop-blur-xl space-y-8">
+        <div className="relative p-6 sm:p-12 md:p-16 rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#0E1420]/90 via-[#0A0D15]/85 to-[#06080D]/95 border border-[#1E2631] shadow-[0_0_60px_rgba(0,0,0,0.8)] backdrop-blur-xl space-y-6 sm:space-y-8">
           {/* Cinema Screen Top Ambient Glow Bar */}
-          <div className="absolute top-0 inset-x-12 h-[2px] bg-gradient-to-r from-transparent via-brand-cyan/80 to-transparent shadow-[0_0_15px_#00D8F6]" />
+          <div className="absolute top-0 inset-x-8 sm:inset-x-12 h-[2px] bg-gradient-to-r from-transparent via-brand-cyan/80 to-transparent shadow-[0_0_15px_#00D8F6]" />
 
           {/* Eyebrow Pill: ONLINE BOOKING */}
           <div className="flex items-center justify-center">
@@ -72,7 +72,7 @@ function BookingComingSoonContent() {
 
           {/* Main Title: The Show Is About to Begin. */}
           <div className="space-y-3">
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight leading-[1.08] text-cinema-pure-white">
+            <h1 className="text-2xl sm:text-4xl md:text-6xl font-black uppercase tracking-tight leading-[1.08] text-cinema-pure-white">
               The Show Is{' '}
               <span className="block sm:inline text-gradient-gold">
                 About to Begin.

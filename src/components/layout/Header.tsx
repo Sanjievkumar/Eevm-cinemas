@@ -147,8 +147,8 @@ export function Header() {
             <Link
               href="/#now-showing"
               className={cn(
-                'inline-flex items-center gap-2',
-                'px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase',
+                'inline-flex items-center gap-1.5 sm:gap-2',
+                'px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-full text-[0.72rem] sm:text-sm font-bold tracking-wide uppercase',
                 'bg-brand-gold text-cinema-black hover:bg-brand-gold-light active:bg-brand-gold-dark',
                 'shadow-[0_0_20px_rgba(201,168,76,0.3)] hover:shadow-[0_0_25px_rgba(201,168,76,0.5)]',
                 'transition-all duration-300 transform hover:-translate-y-0.5',
@@ -157,7 +157,7 @@ export function Header() {
             >
               <span>Book Tickets</span>
               <svg
-                className="w-3.5 h-3.5"
+                className="w-3 sm:w-3.5 h-3 sm:h-3.5"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={3}

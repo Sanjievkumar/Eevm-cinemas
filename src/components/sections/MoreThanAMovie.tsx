@@ -100,13 +100,6 @@ export function MoreThanAMovie() {
                 </p>
               </div>
 
-              {/* Bottom CTA: LEARN MORE → */}
-              <div className="pt-3 border-t border-[#1E2631]/80">
-                <span className="text-[0.68rem] font-bold tracking-wider text-brand-gold uppercase inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                  <span>LEARN MORE</span>
-                  <span>&rarr;</span>
-                </span>
-              </div>
             </div>
           ))}
         </div>
