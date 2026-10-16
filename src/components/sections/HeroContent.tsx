@@ -12,7 +12,7 @@ export function HeroContent() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   return (
-    <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 pt-28 sm:pt-36 pb-16 lg:pb-28 flex flex-col items-start text-left">
+    <div className="relative z-10 w-full px-4 sm:px-6 lg:px-10 pt-20 sm:pt-28 lg:pt-32 pb-8 sm:pb-12 flex flex-col items-start text-left">
       {/* 1. Location Header: KOCHI · KERALAM */}
       <div
         className="flex items-center gap-2 sm:gap-3 text-[0.7rem] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-cyan opacity-0 animate-slide-in-left"
@@ -25,20 +25,20 @@ export function HeroContent() {
 
       {/* 2. Main Headline: EXPERIENCE THE GRANDNESS */}
       <h1
-        className="mt-4 sm:mt-6 opacity-0 animate-slide-in-left"
+        className="mt-3 sm:mt-5 opacity-0 animate-slide-in-left"
         style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}
       >
-        <span className="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-cinema-pure-white leading-[1.02] uppercase">
+        <span className="block text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight text-cinema-pure-white leading-[1.05] uppercase">
           EXPERIENCE
         </span>
-        <span className="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-gradient-gold leading-[1.02] uppercase mt-1 sm:mt-2">
+        <span className="block text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight text-gradient-gold leading-[1.05] uppercase mt-1 sm:mt-2">
           THE GRANDNESS.
         </span>
       </h1>
 
       {/* 3. Concise Supporting Text */}
       <p
-        className="mt-4 sm:mt-5 text-sm sm:text-base text-cinema-gray-300 max-w-sm sm:max-w-md font-light leading-relaxed opacity-0 animate-slide-in-left"
+        className="mt-3 sm:mt-5 text-xs sm:text-base text-cinema-gray-300 max-w-sm sm:max-w-md font-light leading-relaxed opacity-0 animate-slide-in-left"
         style={{ animationDelay: '600ms', animationFillMode: 'forwards' }}
       >
         {cinemaInfo.description}
@@ -46,7 +46,7 @@ export function HeroContent() {
 
       {/* 4. Action Buttons */}
       <div
-        className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4 sm:gap-5 opacity-0 animate-slide-in-left"
+        className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-5 opacity-0 animate-slide-in-left"
         style={{ animationDelay: '800ms', animationFillMode: 'forwards' }}
       >
         {/* Primary CTA: BOOK TICKETS */}

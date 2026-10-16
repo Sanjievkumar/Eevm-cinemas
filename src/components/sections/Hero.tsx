@@ -15,18 +15,22 @@ export function Hero({ src }: HeroProps) {
   return (
     <section
       id="hero"
-      className="relative min-h-[100svh] flex flex-col justify-between overflow-hidden bg-[#060709]"
+      className="relative w-full min-h-[600px] lg:h-[calc(100vh-var(--nav-height,80px))] max-h-[900px] flex flex-col justify-between overflow-hidden bg-[#060709]"
+      style={{ '--nav-height': '80px' } as React.CSSProperties}
       aria-label="Welcome to EVM Cinemas"
     >
-      {/* 1. Full-bleed Theatre Media Background */}
-      <HeroBackground src={src} />
+      {/* Unified Master Stage Container: Background and Content share the exact same centered coordinate frame */}
+      <div className="relative w-full max-w-[1400px] mx-auto flex-1 flex flex-col justify-center overflow-hidden">
+        {/* Photographic background image bounded within the master coordinate frame */}
+        <HeroBackground src={src} />
 
-      {/* 2. Left-Aligned Content Overlay */}
-      <div className="flex-1 flex items-center">
-        <HeroContent />
+        {/* Foreground typography and actions overlay */}
+        <div className="relative z-10 w-full flex-1 flex items-center">
+          <HeroContent />
+        </div>
       </div>
 
-      {/* 3. Bottom Feature Bar */}
+      {/* Bottom Feature Bar */}
       <HeroBottomBar />
     </section>
   );

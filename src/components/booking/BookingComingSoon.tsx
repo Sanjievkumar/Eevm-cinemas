@@ -30,7 +30,10 @@ function BookingComingSoonContent() {
   };
 
   return (
-    <div className="relative min-h-[calc(100vh-80px)] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-10 overflow-hidden">
+    <div
+      className="relative min-h-[580px] lg:h-[calc(100vh-var(--nav-height,80px))] max-h-[900px] flex items-center justify-center py-12 sm:py-16 px-4 sm:px-6 lg:px-10 overflow-hidden"
+      style={{ '--nav-height': '80px' } as React.CSSProperties}
+    >
       {/* 1. Cinematic Background: Soft Projector Beam & Atmospheric Haze */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         {/* Soft overhead projector beam */}
@@ -169,7 +172,7 @@ export function BookingComingSoon() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-[70vh] flex items-center justify-center text-cinema-gray-400 text-sm">
+        <div className="min-h-[400px] flex items-center justify-center text-cinema-gray-400 text-sm">
           Loading EVM Cinemas Booking Experience...
         </div>
       }
