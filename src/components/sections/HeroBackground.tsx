@@ -1,20 +1,45 @@
 'use client';
 
 interface HeroBackgroundProps {
-  /** Optional custom image or video background URI for EVM Cinemas. Replace this prop with real photographic/video asset */
+  /** Optional custom image background URI */
   src?: string;
+  /** Optional background video URI */
+  videoSrc?: string;
 }
 
 /**
- * HeroBackground — Replaceable Hero media container for EVM CINEMAS.
- * Renders a full-bleed visual structure with night sky atmosphere and cyan pillar lighting.
- * Designed cleanly as temporary placeholder media so a real photograph/video can replace it.
+ * HeroBackground — Full-bleed video and photographic background for EVM CINEMAS.
  */
-export function HeroBackground({ src = '/images/hero/hero-building.jpg' }: HeroBackgroundProps) {
+export function HeroBackground({
+  src = '/images/hero/hero-building.jpg',
+  videoSrc = '/videos/evm-experience.mp4',
+}: HeroBackgroundProps) {
   return (
     <div className="absolute inset-0 overflow-hidden select-none pointer-events-none" aria-hidden="true">
-      {src ? (
-        /* Photographic Image or Video Asset Container */
+      {videoSrc ? (
+        <div className="absolute inset-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            poster={src}
+            className="w-full h-full object-cover object-center"
+          >
+            <source src={videoSrc} type="video/mp4" />
+            <img
+              src={src}
+              alt="EVM Cinemas Building"
+              className="w-full h-full object-cover object-center"
+            />
+          </video>
+          {/* Cinematic dark gradients for maximum text contrast */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#060709]/90 via-[#060709]/60 to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#060709] via-transparent to-[#060709]/70" />
+        </div>
+      ) : src ? (
+        /* Photographic Image Asset Container */
         <div className="absolute inset-0 animate-ken-burns">
           <img
             src={src}

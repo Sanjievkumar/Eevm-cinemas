@@ -5,9 +5,11 @@ import type { ExperienceFeature } from '@/types';
 import { getExperienceFeatures } from '@/lib/api/cinema-service';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { DolbyIcon } from '@/components/ui/DolbyIcon';
+import { CinemaVideoModal } from '@/components/ui/CinemaVideoModal';
 
 export function MoreThanAMovie() {
   const [features, setFeatures] = useState<ExperienceFeature[]>([]);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   useEffect(() => {
     async function loadData() {
@@ -42,7 +44,8 @@ export function MoreThanAMovie() {
           action={
             <button
               type="button"
-              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase text-cinema-pure-white bg-white/5 hover:bg-white/10 border border-white/20 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan"
+              onClick={() => setIsVideoModalOpen(true)}
+              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase text-cinema-pure-white bg-white/5 hover:bg-white/10 border border-white/20 hover:border-brand-cyan/60 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan"
             >
               <span className="text-brand-gold text-xs">▶</span>
               <span>WATCH THE EXPERIENCE</span>
@@ -108,6 +111,14 @@ export function MoreThanAMovie() {
           ))}
         </div>
       </div>
+
+      {/* Cinematic Experience Video Modal */}
+      <CinemaVideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        videoSrc="/videos/evm-experience.mp4"
+        title="EVM CINEMAS — THE EXPERIENCE"
+      />
     </section>
   );
 }

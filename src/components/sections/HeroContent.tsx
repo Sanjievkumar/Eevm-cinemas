@@ -1,10 +1,16 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import { cinemaInfo } from '@/lib/data/mock-data';
+import { CinemaVideoModal } from '@/components/ui/CinemaVideoModal';
 
 /**
  * HeroContent — Left-aligned content layout representing EVM CINEMAS (Kochi, Keralam).
  */
 export function HeroContent() {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
   return (
     <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 pt-28 sm:pt-36 pb-16 lg:pb-28 flex flex-col items-start text-left">
       {/* 1. Location Header: KOCHI · KERALAM */}
@@ -65,6 +71,7 @@ export function HeroContent() {
         {/* Secondary CTA: WATCH EXPERIENCE VIDEO */}
         <button
           type="button"
+          onClick={() => setIsVideoModalOpen(true)}
           className="inline-flex items-center gap-3 px-6 py-3.5 sm:px-7 sm:py-4 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase text-cinema-pure-white bg-white/5 hover:bg-white/10 border border-white/20 hover:border-brand-cyan/60 transition-all duration-300 backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan"
         >
           <div className="w-6 h-6 rounded-full bg-brand-cyan/20 border border-brand-cyan/60 flex items-center justify-center">
@@ -79,6 +86,14 @@ export function HeroContent() {
           <span>WATCH EXPERIENCE VIDEO</span>
         </button>
       </div>
+
+      {/* Cinematic Experience Video Modal */}
+      <CinemaVideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        videoSrc="/videos/evm-experience.mp4"
+        title="EVM CINEMAS — EXPERIENCE FILM"
+      />
     </div>
   );
 }
