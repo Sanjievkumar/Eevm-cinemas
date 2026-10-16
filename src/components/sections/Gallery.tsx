@@ -66,7 +66,7 @@ export function Gallery() {
       <div className="max-w-[1400px] mx-auto space-y-10 sm:space-y-14">
         {/* Section Header */}
         <SectionHeader
-          number="08"
+          number="07"
           eyebrowText="GALLERY"
           titleWhite="INSIDE"
           titleGold="EVM CINEMAS."

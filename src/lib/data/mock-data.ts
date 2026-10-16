@@ -37,9 +37,8 @@ export const homepageSections: HomepageSection[] = [
   { id: 'experience', label: 'More Than a Movie', order: 4 },
   { id: 'screens', label: 'Two Screens', order: 5 },
   { id: 'about', label: 'Our Legacy', order: 6 },
-  { id: 'location', label: 'Location', order: 7 },
-  { id: 'gallery', label: 'Location / Gallery', order: 8 },
-  { id: 'contact', label: 'Contact', order: 9 },
+  { id: 'gallery', label: 'Gallery', order: 7 },
+  { id: 'contact', label: 'Contact', order: 8 },
 ];
 
 // =============================================================================
