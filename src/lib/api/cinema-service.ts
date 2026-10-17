@@ -60,7 +60,7 @@ export async function getShowtimesForMovieAndDate(
   await new Promise((res) => setTimeout(res, 20));
   const movieSchedule = mockMovieShowtimes[movieId];
   if (!movieSchedule) return [];
-  return movieSchedule[date] || movieSchedule['2026-10-07'] || [];
+  return movieSchedule[date] || movieSchedule['2026-10-17'] || Object.values(movieSchedule)[0] || [];
 }
 
 /**

@@ -59,11 +59,9 @@ export function QuickBookingBar({
             onChange={handleMovieSelect}
             className="w-full bg-[#141A24] border border-[#273244] rounded-lg px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-cinema-white focus:outline-none focus:border-brand-gold transition-colors"
           >
-            {movies.map((m) => (
-              <option key={m.id} value={m.id} className="bg-[#0C1017]">
-                {m.title} ({m.language})
-              </option>
-            ))}
+            <option value={localMovieId || movies[0]?.id || ''} className="bg-[#0C1017]">
+              Coming Soon
+            </option>
           </select>
         </div>
 

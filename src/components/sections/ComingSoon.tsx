@@ -80,7 +80,7 @@ export function ComingSoon() {
 
                     {/* Release Date Badge Overlay */}
                     <div className="absolute bottom-2.5 left-2.5 right-2.5 z-20 px-2 py-1 rounded bg-[#060709]/90 border border-brand-gold/50 text-[0.62rem] font-bold text-brand-gold uppercase tracking-wider text-center backdrop-blur-md">
-                      RELEASING {movie.releaseDate}
+                      {movie.releaseDate.toUpperCase().includes('COMING') ? 'COMING SOON' : `RELEASING ${movie.releaseDate}`}
                     </div>
                   </div>
 

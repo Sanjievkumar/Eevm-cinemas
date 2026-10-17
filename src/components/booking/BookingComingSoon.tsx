@@ -83,7 +83,7 @@ function BookingComingSoonContent() {
             </h1>
 
             {/* Optional Selected Movie Context */}
-            {matchedMovie && (
+            {matchedMovie && matchedMovie.title.toUpperCase() !== 'COMING SOON' && (
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#162030] border border-brand-cyan/30 text-xs font-semibold text-brand-cyan">
                 <span>Selected:</span>
                 <span className="text-cinema-pure-white font-bold">{matchedMovie.title}</span>
