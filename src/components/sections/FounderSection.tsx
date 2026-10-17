@@ -47,9 +47,9 @@ export function FounderSection() {
               {/* Founder Image or Refined Bespoke Placeholder */}
               {!imageError ? (
                 <img
-                  src="/images/founder/jose-mathew.jpg"
+                  src="/images/founder/Jose%20Mathew.jpeg"
                   alt="Mr. Jose Mathew — Managing Director, EVM Cinemas"
-                  className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                   onError={() => setImageError(true)}
                 />
               ) : null}
