@@ -34,10 +34,10 @@ export function FounderSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Founder Portrait Space */}
           <div className="lg:col-span-5 flex flex-col items-center lg:items-start">
-            <div className="group relative w-full max-w-[400px] aspect-[3/4] rounded-2xl border border-brand-gold/40 bg-gradient-to-b from-[#141B26] via-[#0D121B] to-[#070A0F] overflow-hidden shadow-[0_0_40px_rgba(201,168,76,0.12)] transition-all duration-500 hover:border-brand-gold/70 hover:shadow-[0_0_50px_rgba(201,168,76,0.22)]">
+            <div className="group relative w-full max-w-[420px] aspect-[4/5] rounded-2xl border border-brand-gold/50 bg-[#0A0D14] overflow-hidden shadow-[0_0_40px_rgba(201,168,76,0.18)] transition-all duration-500 hover:border-brand-gold/80 hover:shadow-[0_0_50px_rgba(201,168,76,0.28)]">
               {/* Projector Overhead Light Cone */}
               <div
-                className="absolute -top-12 left-1/2 -translate-x-1/2 w-64 h-80 pointer-events-none opacity-60"
+                className="absolute -top-12 left-1/2 -translate-x-1/2 w-64 h-80 pointer-events-none opacity-60 z-10"
                 style={{
                   background:
                     'radial-gradient(ellipse at 50% 0%, rgba(201, 168, 76, 0.25) 0%, rgba(0, 216, 246, 0.12) 40%, transparent 75%)',
@@ -49,7 +49,7 @@ export function FounderSection() {
                 <img
                   src="/images/founder/jose-mathew.jpg"
                   alt="Mr. Jose Mathew — Managing Director, EVM Cinemas"
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   onError={() => setImageError(true)}
                 />
               ) : null}
@@ -87,17 +87,17 @@ export function FounderSection() {
               )}
 
               {/* Bottom Card Glass Overlay */}
-              <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black/95 via-black/80 to-transparent flex flex-col justify-end">
-                <div className="flex items-center justify-between border-t border-brand-gold/30 pt-3">
+              <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 bg-gradient-to-t from-black/90 via-black/45 to-transparent z-10 flex flex-col justify-end pointer-events-none">
+                <div className="flex items-center justify-between border-t border-brand-gold/40 pt-2.5">
                   <div>
-                    <h4 className="text-base sm:text-lg font-black text-cinema-pure-white uppercase tracking-wide">
+                    <h4 className="text-sm sm:text-base font-black text-cinema-pure-white uppercase tracking-wide drop-shadow">
                       Mr. Jose Mathew
                     </h4>
-                    <p className="text-[0.68rem] text-brand-gold font-semibold uppercase tracking-wider">
+                    <p className="text-[0.65rem] text-brand-gold font-semibold uppercase tracking-wider">
                       Managing Director &bull; EVM Group
                     </p>
                   </div>
-                  <span className="text-[0.6rem] font-bold tracking-widest text-brand-cyan uppercase bg-brand-cyan/10 border border-brand-cyan/20 px-2 py-0.5 rounded">
+                  <span className="text-[0.58rem] font-bold tracking-widest text-brand-cyan uppercase bg-black/60 backdrop-blur-md border border-brand-cyan/30 px-2 py-0.5 rounded shadow">
                     FORT KOCHI
                   </span>
                 </div>
