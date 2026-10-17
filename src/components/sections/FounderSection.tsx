@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
+import { DolbyIcon } from '@/components/ui/DolbyIcon';
 import { DolbyCinemaLogo, DolbyAtmosLogo } from '@/components/ui/DolbyLogos';
 
 export function FounderSection() {
@@ -213,17 +214,18 @@ export function FounderSection() {
               {/* Card 4: Flagship Audio-Visual Tech */}
               <div className="p-4 rounded-xl bg-[#0C1017] border border-[#1E2631] space-y-1.5 transition-colors hover:border-brand-cyan/40">
                 <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                    <DolbyCinemaLogo className="h-2.5 w-auto" alt="Dolby Cinema" />
+                  <div className="w-7 h-7 rounded-lg bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan">
+                    <DolbyIcon className="w-3.5 h-3.5" fill="currentColor" />
                   </div>
                   <span className="text-[0.62rem] font-bold tracking-widest text-cinema-pure-white uppercase">
                     TECHNOLOGY LEADERSHIP
                   </span>
                 </div>
                 <p className="text-xs text-cinema-gray-300 font-normal leading-snug flex items-center gap-1.5 flex-wrap">
-                  <span>Dual screens with</span>
-                  <DolbyAtmosLogo className="h-2.5 w-auto" alt="Dolby Atmos" />
-                  <span>&amp; 4K laser.</span>
+                  <span>Dual screens &ndash;</span>
+                  <DolbyCinemaLogo variant="black" className="h-3 w-auto invert opacity-95 inline-block" alt="Dolby Cinema" />
+                  <span>&amp;</span>
+                  <DolbyAtmosLogo variant="black" className="h-3 w-auto invert opacity-95 inline-block" alt="Dolby Atmos" />
                 </p>
               </div>
             </div>
