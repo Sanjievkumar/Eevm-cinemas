@@ -10,21 +10,45 @@ export function ComingSoon() {
   const [movies, setMovies] = useState<ComingSoonMovie[]>([]);
   const [notifiedIds, setNotifiedIds] = useState<Record<string, boolean>>({});
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    async function loadData() {
-      try {
-        setIsLoading(true);
-        const data = await getComingSoonMovies();
-        setMovies(data);
-      } catch (err) {
-        console.error('Failed to load coming soon movies:', err);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    loadData();
+    let isMounted = true;
+
+    getComingSoonMovies()
+      .then((data) => {
+        if (isMounted) {
+          setMovies(data);
+          setIsLoading(false);
+        }
+      })
+      .catch((err) => {
+        if (isMounted) {
+          console.error('Failed to load coming soon movies:', err);
+          setError('Unable to load upcoming releases. Please try again.');
+          setIsLoading(false);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
+
+  const handleRetry = () => {
+    setIsLoading(true);
+    setError(null);
+    getComingSoonMovies()
+      .then((data) => {
+        setMovies(data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error('Failed to load coming soon movies:', err);
+        setError('Unable to load upcoming releases. Please try again.');
+        setIsLoading(false);
+      });
+  };
 
   const toggleNotify = (id: string) => {
     setNotifiedIds((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -46,19 +70,59 @@ export function ComingSoon() {
           description="Get ready for the next big blockbusters arriving at EVM Cinemas."
           rightElement={
             <span className="text-xs font-bold tracking-wider uppercase text-cinema-gray-400 border border-[#1E2631] px-3.5 py-2 rounded-full bg-[#0C1017]">
-              {movies.length || 5} UPCOMING RELEASES
+              {movies.length > 0 ? `${movies.length} UPCOMING RELEASES` : 'STAY TUNED'}
             </span>
           }
         />
 
-        {/* 5-Column Grid */}
+        {/* Main Content: Loading, Error, Empty, or 5-Column Grid */}
         {isLoading ? (
+          /* Loading Skeleton State */
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {[1, 2, 3, 4, 5].map((i) => (
               <div key={i} className="aspect-[2/3] rounded-xl bg-[#0C1017] border border-[#1E2631] animate-pulse" />
             ))}
           </div>
+        ) : error ? (
+          /* Error State */
+          <div className="bg-[#140C0C] border border-[#3A1818] rounded-xl p-8 text-center space-y-3">
+            <p className="text-sm font-semibold text-red-400">{error}</p>
+            <button
+              type="button"
+              onClick={handleRetry}
+              className="px-4 py-2 rounded-lg bg-red-950 text-red-200 text-xs font-bold uppercase tracking-wider hover:bg-red-900 transition-colors"
+            >
+              Retry
+            </button>
+          </div>
+        ) : movies.length === 0 ? (
+          /* Empty State */
+          <div className="bg-[#0C1017] border border-[#1E2631] rounded-2xl p-10 sm:p-14 text-center max-w-2xl mx-auto space-y-4">
+            <div className="w-12 h-12 mx-auto rounded-full bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div className="space-y-1">
+              <h4 className="text-base sm:text-lg font-bold uppercase tracking-wider text-cinema-pure-white">
+                No Upcoming Releases Scheduled
+              </h4>
+              <p className="text-xs sm:text-sm text-cinema-gray-400 font-light leading-relaxed">
+                We are preparing new announcements. Check back soon or explore movies currently playing at EVM Cinemas.
+              </p>
+            </div>
+            <a
+              href="#now-showing"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase bg-brand-gold text-cinema-black hover:bg-brand-gold-light transition-all shadow-[0_0_15px_rgba(201,168,76,0.3)]"
+            >
+              <span>View Now Showing</span>
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </a>
+          </div>
         ) : (
+          /* 5-Column Grid */
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {movies.map((movie) => {
               const isNotified = notifiedIds[movie.id];

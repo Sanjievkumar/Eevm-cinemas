@@ -14,6 +14,7 @@ export function NowShowing() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [dates, setDates] = useState<{ date: string; dayLabel: string; monthLabel: string }[]>([]);
   const [selectedDate, setSelectedDate] = useState<string>('');
+  const [selectedMovieId, setSelectedMovieId] = useState<string>('');
   const [selectedLanguage, setSelectedLanguage] = useState<string>('ALL');
   const [movieShowtimes, setMovieShowtimes] = useState<Record<string, Showtime[]>>({});
   
@@ -21,24 +22,63 @@ export function NowShowing() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    async function loadInitialData() {
-      try {
-        setIsLoading(true);
-        setError(null);
+    let isMounted = true;
 
-        const [fetchedMovies, fetchedDates] = await Promise.all([
-          getNowShowingMovies('ALL'),
-          getAvailableShowDates(),
-        ]);
-
+    Promise.all([getNowShowingMovies('ALL'), getAvailableShowDates()])
+      .then(async ([fetchedMovies, fetchedDates]) => {
+        if (!isMounted) return;
         setMovies(fetchedMovies);
         setDates(fetchedDates);
+
+        if (fetchedMovies.length > 0) {
+          setSelectedMovieId(fetchedMovies[0].id);
+        }
 
         if (fetchedDates.length > 0) {
           const initialDate = fetchedDates[0].date;
           setSelectedDate(initialDate);
-          
-          // Load initial showtimes for each movie
+
+          const showtimeMap: Record<string, Showtime[]> = {};
+          await Promise.all(
+            fetchedMovies.map(async (movie) => {
+              const st = await getShowtimesForMovieAndDate(movie.id, initialDate);
+              showtimeMap[movie.id] = st;
+            })
+          );
+          if (isMounted) {
+            setMovieShowtimes(showtimeMap);
+          }
+        }
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        if (!isMounted) return;
+        console.error('Failed to load cinema schedule:', err);
+        setError('Unable to load showtimes from cinema schedule. Please try again.');
+        setIsLoading(false);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const handleRetry = () => {
+    setIsLoading(true);
+    setError(null);
+    Promise.all([getNowShowingMovies('ALL'), getAvailableShowDates()])
+      .then(async ([fetchedMovies, fetchedDates]) => {
+        setMovies(fetchedMovies);
+        setDates(fetchedDates);
+
+        if (fetchedMovies.length > 0) {
+          setSelectedMovieId(fetchedMovies[0].id);
+        }
+
+        if (fetchedDates.length > 0) {
+          const initialDate = fetchedDates[0].date;
+          setSelectedDate(initialDate);
+
           const showtimeMap: Record<string, Showtime[]> = {};
           await Promise.all(
             fetchedMovies.map(async (movie) => {
@@ -48,16 +88,14 @@ export function NowShowing() {
           );
           setMovieShowtimes(showtimeMap);
         }
-      } catch (err) {
-        console.error('Failed to load cinema schedule:', err);
-        setError('Unable to load showtimes. Please try again.');
-      } finally {
         setIsLoading(false);
-      }
-    }
-
-    loadInitialData();
-  }, []);
+      })
+      .catch((err) => {
+        console.error('Failed to load cinema schedule:', err);
+        setError('Unable to load showtimes from cinema schedule. Please try again.');
+        setIsLoading(false);
+      });
+  };
 
   // Handle Date Selection Change
   const handleDateSelect = async (date: string) => {
@@ -76,14 +114,21 @@ export function NowShowing() {
     }
   };
 
+  // Derive dynamic language filters based on movies currently in schedule
+  const availableLanguages = [
+    'ALL',
+    ...Array.from(new Set(movies.map((m) => m.language.toUpperCase()))),
+  ];
+
   // Handle Language Filter
   const filteredMovies = movies.filter((movie) => {
     if (selectedLanguage === 'ALL') return true;
     return movie.language.toUpperCase() === selectedLanguage.toUpperCase();
   });
 
-  const activeShowtimesForQuickBar = movies[0]?.id && selectedDate
-    ? movieShowtimes[movies[0].id] || []
+  const activeMovieId = selectedMovieId || movies[0]?.id || '';
+  const activeShowtimesForQuickBar = activeMovieId
+    ? movieShowtimes[activeMovieId] || []
     : [];
 
   return (
@@ -94,7 +139,7 @@ export function NowShowing() {
     >
       <div className="max-w-[1400px] mx-auto space-y-10 sm:space-y-14">
 
-        {/* 1. Section Header matching Page 2 of PDF Mockup */}
+        {/* 1. Section Header matching EVM Mockup */}
         <div className="flex flex-col items-start space-y-3">
           <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-brand-cyan">
             <span>02</span>
@@ -119,7 +164,9 @@ export function NowShowing() {
           dates={dates}
           showtimes={activeShowtimesForQuickBar}
           selectedDate={selectedDate}
+          selectedMovieId={activeMovieId}
           onDateChange={handleDateSelect}
+          onMovieChange={(id) => setSelectedMovieId(id)}
         />
 
         {/* 3. Section Tabs Header: NOW SHOWING | COMING SOON */}
@@ -177,7 +224,7 @@ export function NowShowing() {
 
           {/* Language Filter Pills */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
-            {['ALL', 'TAMIL', 'ENGLISH', 'HINDI'].map((lang) => {
+            {availableLanguages.map((lang) => {
               const isSelected = selectedLanguage === lang;
               return (
                 <button
@@ -217,17 +264,38 @@ export function NowShowing() {
             <p className="text-sm font-semibold text-red-400">{error}</p>
             <button
               type="button"
-              onClick={() => window.location.reload()}
+              onClick={handleRetry}
               className="px-4 py-2 rounded-lg bg-red-950 text-red-200 text-xs font-bold uppercase tracking-wider hover:bg-red-900 transition-colors"
             >
               Retry
             </button>
           </div>
+        ) : movies.length === 0 ? (
+          /* Empty Cinema Schedule State */
+          <div className="bg-[#0E121A] border border-[#1E2631] rounded-2xl p-12 text-center max-w-xl mx-auto space-y-4">
+            <div className="w-12 h-12 mx-auto rounded-full bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h4 className="text-base sm:text-lg font-bold uppercase tracking-wider text-cinema-pure-white">
+              No Movies Currently Showing
+            </h4>
+            <p className="text-xs sm:text-sm text-cinema-gray-400 font-light">
+              We are updating our showtimes. Check back soon or explore upcoming movies.
+            </p>
+            <a
+              href="#coming-soon"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase bg-brand-gold text-cinema-black hover:bg-brand-gold-light transition-all"
+            >
+              View Coming Soon
+            </a>
+          </div>
         ) : filteredMovies.length === 0 ? (
-          /* Empty State */
+          /* Empty Filter State */
           <div className="bg-[#0E121A] border border-[#1E2631] rounded-xl p-12 text-center space-y-3">
             <p className="text-sm font-semibold text-cinema-gray-400">
-              No movies currently available for the selected language.
+              No movies currently available for {selectedLanguage}.
             </p>
             <button
               type="button"
@@ -238,7 +306,7 @@ export function NowShowing() {
             </button>
           </div>
         ) : (
-          /* Responsive Movie Cards Grid: 4 columns desktop, 2 columns tablet, 1 column mobile */
+          /* Responsive Movie Cards Grid */
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {filteredMovies.map((movie) => (
               <MovieCard

@@ -3,23 +3,35 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import { nowShowingMovies, cinemaInfo } from '@/lib/data/mock-data';
+import { getMovieById } from '@/lib/api/cinema-service';
 import { DolbyCinemaLogo, DolbyVisionLogo, DolbyAtmosLogo } from '@/components/ui/DolbyLogos';
 
 function BookingComingSoonContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const ref = searchParams?.get('ref');
+  const [matchedMovie, setMatchedMovie] = useState<{ title: string; language: string } | null>(null);
 
-  // Look up movie if ref matches a movie ID or title
-  const matchedMovie = ref
-    ? nowShowingMovies.find(
-        (m) =>
-          m.id === ref ||
-          m.title.toLowerCase() === ref.toLowerCase() ||
-          ref.startsWith(m.id)
-      )
-    : null;
+  useEffect(() => {
+    if (!ref) return;
+    getMovieById(ref).then((movie) => {
+      if (movie) {
+        setMatchedMovie({ title: movie.title, language: movie.language });
+      } else {
+        const mockMatch = nowShowingMovies.find(
+          (m) =>
+            m.id === ref ||
+            m.title.toLowerCase() === ref.toLowerCase() ||
+            ref.startsWith(m.id)
+        );
+        if (mockMatch) {
+          setMatchedMovie({ title: mockMatch.title, language: mockMatch.language });
+        }
+      }
+    }).catch(() => {});
+  }, [ref]);
 
   const handleBack = () => {
     if (typeof window !== 'undefined' && window.history.length > 1) {

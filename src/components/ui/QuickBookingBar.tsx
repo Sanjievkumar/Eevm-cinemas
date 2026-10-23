@@ -24,23 +24,29 @@ export function QuickBookingBar({
   selectedMovieId,
   selectedDate,
 }: QuickBookingBarProps) {
-  const [localMovieId, setLocalMovieId] = useState(selectedMovieId || movies[0]?.id || '');
-  const [localDate, setLocalDate] = useState(selectedDate || dates[0]?.date || '');
+  const [internalMovieId, setInternalMovieId] = useState<string>('');
+  const [internalDate, setInternalDate] = useState<string>('');
   const [selectedShowtimeId, setSelectedShowtimeId] = useState<string>('');
+
+  // Derived state: prioritize external selectedMovieId/selectedDate if provided
+  const currentMovieId = selectedMovieId || internalMovieId || movies[0]?.id || '';
+  const currentDate = selectedDate || internalDate || dates[0]?.date || '';
 
   const handleMovieSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const val = e.target.value;
-    setLocalMovieId(val);
+    setInternalMovieId(val);
+    setSelectedShowtimeId('');
     onMovieChange?.(val);
   };
 
   const handleDateSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const val = e.target.value;
-    setLocalDate(val);
+    setInternalDate(val);
+    setSelectedShowtimeId('');
     onDateChange?.(val);
   };
 
-  const currentBookingUrl = getBookingUrl(selectedShowtimeId || localMovieId);
+  const currentBookingUrl = getBookingUrl(selectedShowtimeId || currentMovieId);
 
   return (
     <div className="w-full bg-[#0C1017]/90 border border-[#1E2631] rounded-2xl p-4 sm:p-6 shadow-2xl shadow-black/80 backdrop-blur-lg">
@@ -55,13 +61,21 @@ export function QuickBookingBar({
           </label>
           <select
             id="quick-select-movie"
-            value={localMovieId}
+            value={currentMovieId}
             onChange={handleMovieSelect}
             className="w-full bg-[#141A24] border border-[#273244] rounded-lg px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-cinema-white focus:outline-none focus:border-brand-gold transition-colors"
           >
-            <option value={localMovieId || movies[0]?.id || ''} className="bg-[#0C1017]">
-              Coming Soon
-            </option>
+            {movies.length > 0 ? (
+              movies.map((m) => (
+                <option key={m.id} value={m.id} className="bg-[#0C1017]">
+                  {m.title} ({m.language})
+                </option>
+              ))
+            ) : (
+              <option value="" className="bg-[#0C1017]">
+                No movies available
+              </option>
+            )}
           </select>
         </div>
 
@@ -75,7 +89,7 @@ export function QuickBookingBar({
           </label>
           <select
             id="quick-select-date"
-            value={localDate}
+            value={currentDate}
             onChange={handleDateSelect}
             className="w-full bg-[#141A24] border border-[#273244] rounded-lg px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-cinema-white focus:outline-none focus:border-brand-gold transition-colors"
           >
