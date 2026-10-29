@@ -150,18 +150,11 @@ export function NowShowing() {
         {/* 3. Section Tabs Header: NOW SHOWING | COMING SOON */}
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#1E2631] pb-4">
           <div className="flex items-center gap-6 sm:gap-10">
-            <button
-              type="button"
+            <span
               className="text-sm sm:text-lg font-bold tracking-wider uppercase text-cinema-pure-white border-b-2 border-brand-cyan pb-4 -mb-4"
             >
               NOW SHOWING
-            </button>
-            <a
-              href="#coming-soon"
-              className="text-sm sm:text-lg font-bold tracking-wider uppercase text-cinema-gray-500 hover:text-cinema-gray-300 transition-colors pb-4 -mb-4"
-            >
-              COMING SOON
-            </a>
+            </span>
           </div>
 
           {/* View All Movies Link */}
@@ -176,30 +169,8 @@ export function NowShowing() {
           </a>
         </div>
 
-        {/* 4. Date Selection Tabs & Language Filter */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          {/* Date Selector Tabs (Scrollable on mobile) */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-none no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
-            {dates.map((d) => {
-              const isSelected = selectedDate === d.date;
-              return (
-                <button
-                  key={d.date}
-                  type="button"
-                  onClick={() => handleDateSelect(d.date)}
-                  className={`flex flex-col items-center px-4 py-2.5 rounded-lg text-xs font-bold tracking-wider uppercase transition-all flex-shrink-0 ${
-                    isSelected
-                      ? 'bg-brand-gold text-cinema-black shadow-[0_0_18px_rgba(201,168,76,0.35)]'
-                      : 'bg-[#0E121A] border border-[#1E2631] text-cinema-gray-300 hover:border-cinema-gray-600 hover:text-white'
-                  }`}
-                >
-                  <span className="text-[0.62rem] opacity-80">{d.dayLabel}</span>
-                  <span className="text-xs font-black">{d.monthLabel}</span>
-                </button>
-              );
-            })}
-          </div>
-
+        {/* 4. Language Filter */}
+        <div className="flex items-center justify-between gap-4">
           {/* Language Filter Pills */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
             {availableLanguages.map((lang) => {
@@ -260,14 +231,8 @@ export function NowShowing() {
               No Movies Currently Showing
             </h4>
             <p className="text-xs sm:text-sm text-cinema-gray-400 font-light">
-              We are updating our showtimes. Check back soon or explore upcoming movies.
+              We are updating our showtimes. Check back soon.
             </p>
-            <a
-              href="#coming-soon"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase bg-brand-gold text-cinema-black hover:bg-brand-gold-light transition-all"
-            >
-              View Coming Soon
-            </a>
           </div>
         ) : filteredMovies.length === 0 ? (
           /* Empty Filter State */

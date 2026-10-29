@@ -1,6 +1,5 @@
 import { Hero } from '@/components/sections/Hero';
 import { NowShowing } from '@/components/sections/NowShowing';
-import { ComingSoon } from '@/components/sections/ComingSoon';
 import { MoreThanAMovie } from '@/components/sections/MoreThanAMovie';
 import { TwoScreens } from '@/components/sections/TwoScreens';
 import { LegacySection } from '@/components/sections/LegacySection';
@@ -13,7 +12,6 @@ export default function HomePage() {
     <>
       <Hero />
       <NowShowing />
-      <ComingSoon />
       <MoreThanAMovie />
       <TwoScreens />
       <LegacySection />

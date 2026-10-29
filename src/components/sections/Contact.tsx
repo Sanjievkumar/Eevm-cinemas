@@ -238,7 +238,7 @@ export function Contact() {
                       📍 PINNED DESTINATION
                     </span>
                     <span className="block text-xs font-black text-cinema-pure-white uppercase tracking-wide mt-0.5">
-                      EVM Cinemas &bull; Kothakathu Road, Chullickal, Kochi
+                      EVM Cinemas &bull; Fort Kochi
                     </span>
                   </div>
                 </div>
@@ -260,7 +260,7 @@ export function Contact() {
                   LANDMARK
                 </span>
                 <span className="text-[0.68rem] text-cinema-gray-300 font-medium">
-                  Kothakathu Road, Chullickal
+                  Fort Kochi
                 </span>
               </div>
               <div className="p-2.5 rounded-lg bg-[#141A24] border border-[#273244] text-center">
