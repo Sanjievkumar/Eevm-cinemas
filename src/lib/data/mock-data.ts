@@ -51,7 +51,7 @@ export const cinemaInfo: CinemaInfo = {
   name: 'EVM Cinemas',
   tagline: 'Where Stories Come Alive',
   description: 'A modern cinema experience in Kochi, Keralam.',
-  address: 'Opp. EVM Theater, Chullickal',
+  address: 'EVM Cinemas, Kothakathu Road, Chullickal',
   city: 'KOCHI',
   state: 'KERALAM',
   pincode: '682005',
@@ -541,10 +541,10 @@ export const contactDetails: {
     { label: 'Admin', email: 'Admin@evmcinemas.com' },
     { label: 'Projection', email: 'Projection@evmcinemas.com' },
   ],
-  addressLine: 'Opp. EVM Theater, Chullickal, Kochi, Keralam 682005',
+  addressLine: 'EVM Cinemas, Kothakathu Road, Chullickal, Kochi, Kerala 682005',
   locationDescription:
-    'EVM Cinemas is located at Opp. EVM Theater, Chullickal, Kochi, Keralam 682005.',
-  mapsUrl: 'https://www.google.com/maps/place/EVM+Cinemas/@9.9525,76.2472,17z',
+    'EVM Cinemas is located at Kothakathu Road, Chullickal, Kochi, Kerala 682005.',
+  mapsUrl: 'https://www.google.com/maps/place/EVM+Cinemas/@9.9468237,76.2556623,17z/data=!3m1!4b1!4m6!3m5!1s0x3b0873400b95738d:0x247a16fecf1f31f9!8m2!3d9.9468237!4d76.2556623!16s%2Fg%2F11b8zcg34q',
   mapEmbedUrl:
     'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1500!2d76.2472!3d9.9525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b08735ea7019349%3A0xc3f9b2cf88c7d81a!2sEVM%20Cinemas!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin',
   socials: [

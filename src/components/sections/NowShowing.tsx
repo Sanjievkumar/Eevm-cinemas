@@ -14,7 +14,6 @@ export function NowShowing() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [dates, setDates] = useState<{ date: string; dayLabel: string; monthLabel: string }[]>([]);
   const [selectedDate, setSelectedDate] = useState<string>('');
-  const [selectedMovieId, setSelectedMovieId] = useState<string>('');
   const [selectedLanguage, setSelectedLanguage] = useState<string>('ALL');
   const [movieShowtimes, setMovieShowtimes] = useState<Record<string, Showtime[]>>({});
   
@@ -29,10 +28,6 @@ export function NowShowing() {
         if (!isMounted) return;
         setMovies(fetchedMovies);
         setDates(fetchedDates);
-
-        if (fetchedMovies.length > 0) {
-          setSelectedMovieId(fetchedMovies[0].id);
-        }
 
         if (fetchedDates.length > 0) {
           const initialDate = fetchedDates[0].date;
@@ -70,10 +65,6 @@ export function NowShowing() {
       .then(async ([fetchedMovies, fetchedDates]) => {
         setMovies(fetchedMovies);
         setDates(fetchedDates);
-
-        if (fetchedMovies.length > 0) {
-          setSelectedMovieId(fetchedMovies[0].id);
-        }
 
         if (fetchedDates.length > 0) {
           const initialDate = fetchedDates[0].date;
@@ -126,11 +117,6 @@ export function NowShowing() {
     return movie.language.toUpperCase() === selectedLanguage.toUpperCase();
   });
 
-  const activeMovieId = selectedMovieId || movies[0]?.id || '';
-  const activeShowtimesForQuickBar = activeMovieId
-    ? movieShowtimes[activeMovieId] || []
-    : [];
-
   return (
     <section
       id="now-showing"
@@ -158,16 +144,8 @@ export function NowShowing() {
           </p>
         </div>
 
-        {/* 2. Quick Booking Filter Selector Bar */}
-        <QuickBookingBar
-          movies={movies}
-          dates={dates}
-          showtimes={activeShowtimesForQuickBar}
-          selectedDate={selectedDate}
-          selectedMovieId={activeMovieId}
-          onDateChange={handleDateSelect}
-          onMovieChange={(id) => setSelectedMovieId(id)}
-        />
+        {/* 2. Official BookMyShow Booking Panel */}
+        <QuickBookingBar />
 
         {/* 3. Section Tabs Header: NOW SHOWING | COMING SOON */}
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#1E2631] pb-4">
