@@ -66,14 +66,22 @@ export function Header() {
           {/* Logo / Brand — Official EVM Cinemas Logo */}
           <Link
             href="/"
-            className="group flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-sm"
-            aria-label="EVM Cinemas — Home"
+            className="group flex items-center gap-2.5 sm:gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-sm"
+            aria-label="EVM Cinemas — Fort Kochi"
           >
             <img
               src="/images/brand/evm-logo.png"
               alt="EVM Cinemas Logo"
               className="h-8 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105"
             />
+            <div className="hidden sm:flex flex-col border-l border-[#273244] pl-2.5 sm:pl-3">
+              <span className="text-[0.62rem] sm:text-[0.68rem] font-black tracking-widest uppercase text-cinema-pure-white leading-tight">
+                FORT KOCHI
+              </span>
+              <span className="text-[0.52rem] font-bold tracking-wider uppercase text-brand-gold leading-tight">
+                EVM CINEMAS
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation Links */}

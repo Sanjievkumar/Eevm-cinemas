@@ -140,7 +140,7 @@ export function NowShowing() {
           </h2>
 
           <p className="text-xs sm:text-sm text-cinema-gray-300 max-w-xl font-light">
-            Book your tickets and step into a cinematic experience at EVM Cinemas.
+            Book your tickets and step into a cinematic experience at EVM, Fort Kochi.
           </p>
         </div>
 

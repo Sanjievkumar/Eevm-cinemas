@@ -15,12 +15,17 @@ export function HeroContent() {
     <div className="relative z-10 w-full px-4 sm:px-6 lg:px-10 pt-20 sm:pt-28 lg:pt-32 pb-8 sm:pb-12 flex flex-col items-start text-left">
       {/* 1. Location Header: KOCHI · KERALAM */}
       <div
-        className="flex items-center gap-2 sm:gap-3 text-[0.7rem] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-cyan opacity-0 animate-slide-in-left"
+        className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0C1017]/85 border border-brand-gold/50 text-[0.7rem] sm:text-xs font-bold tracking-[0.25em] uppercase opacity-0 animate-slide-in-left shadow-[0_0_20px_rgba(201,168,76,0.2)] backdrop-blur-md"
         style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}
       >
-        <span>{cinemaInfo.city}</span>
-        <span className="text-cinema-gray-500 font-normal">&middot;</span>
-        <span>{cinemaInfo.state}</span>
+        <svg className="w-3.5 h-3.5 text-brand-gold fill-current" viewBox="0 0 24 24">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+        </svg>
+        <span className="text-brand-gold font-extrabold">EVM</span>
+        <span className="text-cinema-gray-500 font-normal">&bull;</span>
+        <span className="text-cinema-pure-white font-black tracking-widest">FORT KOCHI</span>
+
+
       </div>
 
       {/* 2. Main Headline: EXPERIENCE THE GRANDNESS */}

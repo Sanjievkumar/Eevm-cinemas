@@ -15,10 +15,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'EVM Cinemas — Where Stories Come Alive',
+  title: 'EVM Cinemas — Fort Kochi | Where Stories Come Alive',
   description:
-    'Experience premium cinema at EVM Cinemas. Now showing the latest blockbusters with state-of-the-art 4K projection and Dolby Atmos sound.',
-  keywords: ['EVM Cinemas', 'cinema', 'movies', 'Kochi', 'Keralam', '4K', 'Dolby Atmos'],
+    'Experience premium cinema at EVM, Fort Kochi. Now showing the latest blockbusters with state-of-the-art 4K projection, Dolby Cinema, and Dolby Atmos sound.',
+  keywords: ['EVM Cinemas', 'EVM Fort Kochi', 'Fort Kochi cinema', 'movies', 'Kochi', 'Keralam', '4K', 'Dolby Cinema', 'Dolby Atmos'],
   openGraph: {
     title: 'EVM Cinemas — Where Stories Come Alive',
     description:

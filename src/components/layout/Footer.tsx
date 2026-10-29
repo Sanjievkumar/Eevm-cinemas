@@ -40,7 +40,7 @@ export function Footer() {
           <div>
             <h3 className="text-overline mb-4">Location</h3>
             <address className="not-italic space-y-2 text-sm text-cinema-gray-400">
-              <p>{cinemaInfo.name}</p>
+              <p className="font-bold text-cinema-pure-white uppercase tracking-wider text-xs">EVM Cinemas &bull; Fort Kochi</p>
               <p>
                 {contactDetails.mapsUrl ? (
                   <a

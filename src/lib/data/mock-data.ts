@@ -50,9 +50,9 @@ export const homepageSections: HomepageSection[] = [
 export const cinemaInfo: CinemaInfo = {
   name: 'EVM Cinemas',
   tagline: 'Where Stories Come Alive',
-  description: 'A modern cinema experience in Kochi, Keralam.',
+  description: 'A modern cinema experience at EVM, Fort Kochi.',
   address: 'EVM Cinemas, Kothakathu Road, Chullickal',
-  city: 'KOCHI',
+  city: 'FORT KOCHI',
   state: 'KERALAM',
   pincode: '682005',
   phone: '+91 484 485 7577',
