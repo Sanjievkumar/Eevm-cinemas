@@ -20,6 +20,7 @@ export function QuickBookingBar({ className = '' }: QuickBookingBarProps) {
         scrolling="auto"
         frameBorder="0"
         width="100%"
+        referrerPolicy="no-referrer"
         className="w-full border-0 rounded-xl"
         style={{ minHeight: '600px', width: '100%', border: 0 }}
       />
